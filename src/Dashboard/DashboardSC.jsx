@@ -1,8 +1,19 @@
-import React, { Component } from "react";
 import styled from "styled-components";
-
-import propTypes from "prop-types";
 
 // Styled Collection
 
-export const DashboardContainer = styled.div``;
+export const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+`;
+
+export const DashboardColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+`;
