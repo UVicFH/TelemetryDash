@@ -11,12 +11,12 @@ class Dashboard extends Component {
         </DashboardColumn>
         <DashboardColumn>
           <PanelContainer>Hello World 1.1</PanelContainer>
-          <PanelContainer>Hello World 1.2</PanelContainer>
+          <PanelContainer color="red">Hello World 1.2</PanelContainer>
         </DashboardColumn>
         <DashboardColumn>
           <PanelContainer>Hello World 1.1</PanelContainer>
-          <PanelContainer>Hello World 1.2</PanelContainer>
-          <PanelContainer>Hello World 1.3</PanelContainer>
+          <PanelContainer color="cyan">Hello World 1.2</PanelContainer>
+          <PanelContainer color="purple">Hello World 1.3</PanelContainer>
         </DashboardColumn>
       </DashboardContainer>
     );
