@@ -1,12 +1,23 @@
 import React, { Component } from "react";
-import { DashboardContainer } from "./DashboardSC";
-import Panel from "./Panel";
+import { DashboardContainer, DashboardColumn } from "./DashboardSC";
+import { PanelContainer } from "./PanelSC";
 
 class Dashboard extends Component {
   render() {
     return (
       <DashboardContainer>
-        <Panel />
+        <DashboardColumn>
+          <PanelContainer>Hello World 1.1</PanelContainer>
+        </DashboardColumn>
+        <DashboardColumn>
+          <PanelContainer>Hello World 1.1</PanelContainer>
+          <PanelContainer>Hello World 1.2</PanelContainer>
+        </DashboardColumn>
+        <DashboardColumn>
+          <PanelContainer>Hello World 1.1</PanelContainer>
+          <PanelContainer>Hello World 1.2</PanelContainer>
+          <PanelContainer>Hello World 1.3</PanelContainer>
+        </DashboardColumn>
       </DashboardContainer>
     );
   }
