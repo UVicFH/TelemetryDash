@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import io from "socket.io-client";
 import { DashboardContainer, DashboardColumn } from "./DashboardSC";
 import { PanelContainer } from "./PanelSC";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.socket = io();
+  }
   render() {
     return (
       <DashboardContainer>
