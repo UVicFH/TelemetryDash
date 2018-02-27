@@ -1,3 +1,17 @@
+The UVic Formula Hybrid Telemetry project is a multi-faceted project.
+
+It’s purpose is to provide the engineering team (and spectators) with real time information to monitor critical systems, diagnose issues, and assist with driver training. 
+
+Wireframes have been designed collaboratively with project stakeholders; those being the full stack developer - Brendon, product developer - Carly, Mechanical Lead - Bennett, Powertrain lead - Chad, and business lead - Rob
+
+The initial mockup and first iteration of the design can be seen here:  
+![Initial wireframe](./assets/Wireframe_V1.png)  
+![Rev 1](./assets/Wireframe_V2.png)
+
+From these mockups you can see the UI is primarily broken into three sections horizontally. The furthest left is technical details for the engineers testing and monitoring. The center remains critical information, but displayed in a less-dense and more appealing fashion to appeal to those less technical viewers. Lastly, the furtherst right shows the same information as the left and center panes, but adds a dimension, time. Each graph can be swapped out on the fly to analyse different systems over time, allowing the engineers to adapt to the circumstance.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
