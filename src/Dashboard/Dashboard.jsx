@@ -1,31 +1,20 @@
-import React, { Component } from "react";
-import io from "socket.io-client";
-import { DashboardContainer, DashboardColumn } from "./DashboardSC";
-import { PanelContainer } from "./PanelSC";
+import styled from "styled-components";
 
-class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.socket = io();
-  }
-  render() {
-    return (
-      <DashboardContainer>
-        <DashboardColumn>
-          <PanelContainer>Hello World 1.1</PanelContainer>
-        </DashboardColumn>
-        <DashboardColumn>
-          <PanelContainer>Hello World 1.1</PanelContainer>
-          <PanelContainer color="red">Hello World 1.2</PanelContainer>
-        </DashboardColumn>
-        <DashboardColumn>
-          <PanelContainer>Hello World 1.1</PanelContainer>
-          <PanelContainer color="cyan">Hello World 1.2</PanelContainer>
-          <PanelContainer color="purple">Hello World 1.3</PanelContainer>
-        </DashboardColumn>
-      </DashboardContainer>
-    );
-  }
-}
+// Styled Collection
 
-export default Dashboard;
+export const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+`;
+export default DashboardContainer;
+
+export const DashboardColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+`;

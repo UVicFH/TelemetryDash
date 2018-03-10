@@ -5,3 +5,4 @@ import styled from "styled-components";
 export const PanelContainer = styled.div`
   background-color: ${props => props.color || "green"};
 `;
+export default PanelContainer;
