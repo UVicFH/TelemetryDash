@@ -1,30 +1,31 @@
+// Framework
 import React, { Component } from "react";
-import io from "socket.io-client";
+
+// Components
 import Dashboard, { DashboardColumn } from "./Dashboard";
 import Panel from "./Panel";
 
 class TeleDash extends Component {
   constructor(props) {
     super(props);
-    this.socket = io();
   }
 
   render() {
     return (
-      <DashboardContainer>
+      <Dashboard>
         <DashboardColumn>
-          <PanelContainer>Hello World 1.1</PanelContainer>
+          <Panel>Hello World 1.1</Panel>
         </DashboardColumn>
         <DashboardColumn>
-          <PanelContainer>Hello World 1.1</PanelContainer>
-          <PanelContainer color="red">Hello World 1.2</PanelContainer>
+          <Panel>Hello World 1.1</Panel>
+          <Panel color="red">Hello World 1.2</Panel>
         </DashboardColumn>
         <DashboardColumn>
-          <PanelContainer>Hello World 1.1</PanelContainer>
-          <PanelContainer color="cyan">Hello World 1.2</PanelContainer>
-          <PanelContainer color="purple">Hello World 1.3</PanelContainer>
+          <Panel>Hello World 1.1</Panel>
+          <Panel color="cyan">Hello World 1.2</Panel>
+          <Panel color="purple">Hello World 1.3</Panel>
         </DashboardColumn>
-      </DashboardContainer>
+      </Dashboard>
     );
   }
 }
