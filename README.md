@@ -2,7 +2,7 @@ The UVic Formula Hybrid Telemetry project is a multi-faceted project.
 
 It’s purpose is to provide the engineering team (and spectators) with real time information to monitor critical systems, diagnose issues, and assist with driver training. 
 
-Wireframes have been designed collaboratively with project stakeholders; those being the full stack developer - Brendon, product developer - Carly, Mechanical Lead - Bennett, Powertrain lead - Chad, and business lead - Rob
+Wireframes have been designed collaboratively with project stakeholders; those being the Full Stack Developer - Brendon, Product Developer - Carly, Mechanical Lead - Bennett, Powertrain Lead - Chad, and Business Manager - Rob
 
 The initial mockup and first iteration of the design can be seen here:  
 ![Initial wireframe](./assets/Wireframe_V1.png)  
