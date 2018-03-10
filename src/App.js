@@ -17,6 +17,17 @@ class App extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    // TODO: Extract into constants file or .env
+    const socket = socketClient("http://localhost:3000/");
+    // Acknowledge connection
+    socket.on("connect", () => {
+      console.log("Websocket connected");
+    });
+    // Modify state when data transmitted
+    socket.on("tele_data", data => this.setState({ teleDash: data }));
+  }
+
   render() {
     return (
       <AppContainer>

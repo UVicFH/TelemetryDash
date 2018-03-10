@@ -10,6 +10,11 @@ class TeleDash extends Component {
     super(props);
   }
 
+  componentWillReceiveProps(props) {
+    console.log("Getting new props");
+    console.log(props);
+  }
+
   render() {
     return (
       <Dashboard>
