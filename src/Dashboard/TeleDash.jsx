@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import Dashboard, { DashboardColumn } from "./Dashboard";
 import Panel from "./Panel";
 
-class Dashboard extends Component {
+class TeleDash extends Component {
   constructor(props) {
     super(props);
     this.socket = io();
@@ -29,4 +29,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default TeleDash;
