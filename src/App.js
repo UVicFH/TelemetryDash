@@ -1,8 +1,9 @@
 // Framework
 import React, { Component } from "react";
 
-// Libraries
+// Libraries & Utils
 import socketClient from "socket.io-client";
+import { acceptData } from "./TransformData";
 
 // Static
 import logo from "./logo.svg";
@@ -15,6 +16,10 @@ import TeleDash from "./Dashboard/TeleDash";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      data: {}
+    };
   }
 
   componentDidMount() {
@@ -25,10 +30,15 @@ class App extends Component {
       console.log("Websocket connected");
     });
     // Modify state when data transmitted
-    socket.on("tele_data", data => this.setState({ teleDash: data }));
+    socket.on("tele_data", newData =>
+      this.setState({
+        data: acceptData(this.state.data, newData)
+      })
+    );
   }
 
   render() {
+    console.log(this.state.data);
     return (
       <AppContainer>
         <AppHeader>
