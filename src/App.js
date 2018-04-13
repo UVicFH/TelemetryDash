@@ -38,12 +38,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.data);
+    console.log("Props:", this.state.data);
     return (
       <AppContainer>
         <AppHeader>
-          <AppLogo src={logo} alt="logo" />
-          <AppTitle>Welcome to React</AppTitle>
+          <AppTitle>UVic Formula Hybrid Telemetry</AppTitle>
         </AppHeader>
         <TeleDash teleDash />
       </AppContainer>

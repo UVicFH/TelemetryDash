@@ -17,4 +17,5 @@ export const DashboardColumn = styled.div`
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
+  flex: 1;
 `;

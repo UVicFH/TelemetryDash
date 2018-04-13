@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3": "^4.13.0",
+    "d3-scale": "2.0.0",
+    "d3-selection-multi": "1.0.1",
+    "d3-shape": "1.2.0",
+    "flexbox": "0.0.3",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-scripts": "1.1.1",

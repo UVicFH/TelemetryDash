@@ -3,3 +3,31 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+.outerBar {
+  stroke: #000;
+  stroke-width: .5px;
+  fill: #fff;
+}
+
+.innerBar {
+  stroke: #000;
+  stroke-width: .5px;
+  fill: #aaa;
+}
+
+hr {
+  margin-top: 25px;
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#222;
+  height: 1px;
+}
+
+h3 {
+  text-transform: uppercase;
+  color: #222;
+}

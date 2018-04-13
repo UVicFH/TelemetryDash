@@ -4,6 +4,8 @@ import React, { Component } from "react";
 // Components
 import Dashboard, { DashboardColumn } from "./Dashboard";
 import Panel from "./Panel";
+import SingleBarGraph from "../Visualizations/SingleBarGraph"
+import DialGraph from "../Visualizations/DialGraph"
 
 class TeleDash extends Component {
   constructor(props) {
@@ -19,16 +21,31 @@ class TeleDash extends Component {
     return (
       <Dashboard>
         <DashboardColumn>
-          <Panel>Hello World 1.1</Panel>
+          <Panel>
+            <h3>Driver</h3>
+            <SingleBarGraph data={5} size={[400,40]} max={20} min={0} valueName={"sample 1"}/>
+            <SingleBarGraph data={15} size={[400,40]} max={25} min={0} valueName={"sample 2"}/>
+            <SingleBarGraph data={18} size={[400,40]} max={20} min={0} valueName={"sample 3"}/>
+          </Panel>
+          <Panel>
+            <h3>Engine</h3>
+            <DialGraph data={18} size={[100,100]} max={20} min={0} valueName={"sample 3"}/>
+            <DialGraph data={16} size={[100,100]} max={20} min={0} valueName={"sample 3"}/>
+            <DialGraph data={18} size={[100,100]} max={25} min={0} valueName={"sample 3"}/>
+            <DialGraph data={10} size={[100,100]} max={20} min={0} valueName={"sample 3"}/>
+          </Panel>
+          <Panel>
+            <h3>Temperatures</h3>
+          </Panel>
         </DashboardColumn>
         <DashboardColumn>
-          <Panel>Hello World 1.1</Panel>
-          <Panel color="red">Hello World 1.2</Panel>
+          <Panel>
+            Car / Speed / Fuel Metrics
+          </Panel>
         </DashboardColumn>
         <DashboardColumn>
-          <Panel>Hello World 1.1</Panel>
-          <Panel color="cyan">Hello World 1.2</Panel>
-          <Panel color="purple">Hello World 1.3</Panel>
+          <Panel>Timeline Metrics</Panel>
+          {/* <Panel color="red">Hello World 1.2</Panel> */}
         </DashboardColumn>
       </Dashboard>
     );
