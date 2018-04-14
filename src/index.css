@@ -31,3 +31,15 @@ h3 {
   text-transform: uppercase;
   color: #222;
 }
+
+.axisText {
+  font-family: sans-serif;
+  font-size: 10px;
+  fill: black;
+}
+
+.valueLable {
+  font-family: sans-serif;
+  font-size: 20px;
+  fill: black;
+}
