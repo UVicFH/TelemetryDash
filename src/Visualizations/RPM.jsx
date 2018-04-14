@@ -1,10 +1,8 @@
 // Framework
 import React, { Component } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 // D3 imports
-import { scaleLinear } from "d3-scale";
-import { max } from "d3-array";
 import { arc} from "d3-shape";
 
 class RPM extends Component {
@@ -13,7 +11,6 @@ class RPM extends Component {
     }
 
     render() {
-        const node = this.node
         const dataMin = 0;
         const dataMax = this.props.max;
         const width = this.props.size[0];

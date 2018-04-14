@@ -1,12 +1,9 @@
 // Framework
 import React, { Component } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 // D3 imports
 import { scaleLinear } from "d3-scale";
-import { max } from "d3-array";
-import { select } from "d3-selection";
-import { selectionMulti } from "d3-selection-multi";
 
 class SingleBarGraphAverage extends Component {
     constructor(props) {
@@ -15,8 +12,6 @@ class SingleBarGraphAverage extends Component {
 
     render() {
         const dataMax = this.props.max
-        const height = this.props.size[1];
-        const width = this.props.size[0];
         const barHeight = this.props.size[1] - 15
         const barWidth = this.props.size[0] - 30
         const xScale = scaleLinear().domain([0, dataMax]).range([0, barWidth])

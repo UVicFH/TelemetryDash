@@ -4,6 +4,7 @@ import React, { Component } from "react";
 // Components
 import Dashboard, { DashboardColumn } from "./Dashboard";
 import Panel from "./Panel";
+import RPM from "../Visualizations/RPM"
 import SingleBarGraph from "../Visualizations/SingleBarGraph"
 import SingleBarGraphAverage from "../Visualizations/SingleBarGraphAverage"
 import DialGraph from "../Visualizations/DialGraph"
@@ -45,6 +46,8 @@ class TeleDash extends Component {
             Car / Speed / Fuel Metrics
           </Panel>
           <Panel>
+            <RPM data={16} size={[400,200]} max={20} min={0} valueName={"sample 3"}/>            
+            {/* TODO: Gears */}
             <SingleBarGraph data={5} size={[400,40]} max={100} min={0} valueName={"Gas"} percent={true}/>
             <SingleBarGraph data={15} size={[400,40]} max={100} min={0} valueName={"Charge"} percent={true}/>
           </Panel>
