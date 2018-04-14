@@ -5,26 +5,16 @@ import styled from "styled-components";
 // D3 imports
 import { scaleLinear } from "d3-scale";
 import { max } from "d3-array";
-import { select,selectAll } from "d3-selection";
+import { select } from "d3-selection";
 import { selectionMulti } from "d3-selection-multi";
-import { arc,pie } from "d3-shape";
+import { arc} from "d3-shape";
 
 class DialGraph extends Component {
     constructor(props) {
         super(props);
-        this.createDialChart = this.createDialChart.bind(this);
     }
 
-    componentDidMount() {
-        this.createDialChart()
-    }
-
-    componentDidUpdate() {
-        this.createDialChart()
-    }
-
-
-    createDialChart() {
+    render() {
         const node = this.node
         const dataMin = 0;
         const dataMax = this.props.max;
@@ -33,63 +23,46 @@ class DialGraph extends Component {
         const radius = Math.min(width, height) * 0.40;
         const donutWidth = radius * 0.20;
 
-        var tau = (.75 * Math.PI);
-        var getArc = arc()
+        var tau = (.75 * Math.PI);  // this calc is off?
+        
+        // CALCULATE BORDER ARC
+        var getArcBorder= arc()
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
-            .startAngle(-0.75 * Math.PI);
-        
-        var background = select(node).append("path")
-            .datum({endAngle: tau})
-            .attr("d", getArc)
-            .style("stroke", "#000")
-            .style("fill", "#FFF")            
-            .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
+            .startAngle(-0.75 * Math.PI)
+            .endAngle(tau);
 
-        //todo: something is still kinda off with the tau calc
-        var bar = select(node).append("path")
-            .datum({endAngle: (this.props.data/dataMax)*tau})
-            .attr("d", getArc)
-            .style("fill", "#ddd")
-            .style("stroke", "#000")            
-            .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
+        // CALCULATE VALUE ARC        
+        var getArcValue = arc()
+            .innerRadius(radius - donutWidth)
+            .outerRadius(radius)
+            .startAngle(-0.75 * Math.PI)
+            .endAngle((this.props.data/dataMax)*tau); // this calc is off?
         
-        var labelValue = select(node)
-            .append("text")
-            .attr('y', (height/2)+10)
-            .attr('x', (width/2))
-            .text(this.props.data)
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "25px")
-            .attr("text-anchor","middle")
-            .attr("fill", "black");
-        
-        var labelMin = select(node)
-            .append("text")
-            .attr('y', height-20)
-            .attr('x', (width*.15))
-            .text(dataMin)
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "10px")
-            .attr("text-anchor","end")
-            .attr("fill", "black");
+        // CURRENT VALUE
+        var valueLable = { x: (width/2), y: ((height/2)+10), value: this.props.data};
 
-        var labelMax = select(node)
-            .append("text")
-            .attr('y', height-20)
-            .attr('x', (width*.85))
-            .text(dataMax)
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "10px")
-            .attr("text-anchor","start")
-            .attr("fill", "black");
-            
-    }
+        // SCALES -- not sure if this is better than using the axis method...
+        var axisMin = { x: (width*.15), y: height-20, value: dataMin}; // display min scale
+        var axisMax = { x: (width*.85), y: height-20, value: dataMax}; // display max scale
 
-    render() {
+        const translateArc = 'translate(' + (height / 2) + ',' + (width / 2) + ')';
+
         return (
             <div> 
-                <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]} className='dial-chart'></svg>
+                <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]} className='dial-chart'>
+                    <path className="outerBar"
+                        d={getArcBorder()} 
+                        transform={translateArc}
+                        />
+                    <path className="innerBar"
+                        d={getArcValue()} 
+                        transform={translateArc}
+                        />
+                    <text className="axisText" x={axisMin.x} y={axisMin.y}>{axisMin.value}</text>
+                    <text className="axisText" x={axisMax.x} y={axisMax.y}>{axisMax.value}</text>
+                    <text className="valueLable" x={valueLable.x} y={valueLable.y}>{valueLable.value}</text>
+                </svg>
                 <label>{this.props.valueName}</label>
             </div>
         );
