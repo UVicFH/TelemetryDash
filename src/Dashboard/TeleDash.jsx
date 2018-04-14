@@ -44,6 +44,10 @@ class TeleDash extends Component {
           <Panel>
             Car / Speed / Fuel Metrics
           </Panel>
+          <Panel>
+            <SingleBarGraph data={5} size={[400,40]} max={100} min={0} valueName={"Gas"} percent={true}/>
+            <SingleBarGraph data={15} size={[400,40]} max={100} min={0} valueName={"Charge"} percent={true}/>
+          </Panel>
         </DashboardColumn>
         <DashboardColumn>
           <Panel>Timeline Metrics</Panel>

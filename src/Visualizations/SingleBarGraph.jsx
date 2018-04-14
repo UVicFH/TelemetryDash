@@ -18,7 +18,7 @@ class SingleBarGraph extends Component {
         const height = this.props.size[1];
         const width = this.props.size[0];
         const barHeight = this.props.size[1] - 15
-        const barWidth = this.props.size[0] - 30
+        const barWidth = this.props.size[0] - 50
         const xScale = scaleLinear().domain([0, dataMax]).range([0, barWidth])
         
         // BAR BORDER
@@ -28,7 +28,11 @@ class SingleBarGraph extends Component {
         var valueBar = { x: 0, y: 0, width: xScale(this.props.data), height: barHeight};
 
         // CURRENT VALUE
-        var valueLable = { x: (barWidth + 5), y: ((barHeight/2)+7), value: this.props.data};
+        var valueLable = { 
+            x: (barWidth + 5), 
+            y: ((barHeight/2)+7), 
+            value: (this.props.percent ? (this.props.data + "%") : (this.props.data))
+        };
             
         // SCALES -- not sure if this is better than using the axis method...
         var axisMin = { x: 0, y: barHeight+10, value: 0}; // display min scale
