@@ -8,6 +8,8 @@ import RPM from "../Visualizations/RPM"
 import SingleBarGraph from "../Visualizations/SingleBarGraph"
 import SingleBarGraphAverage from "../Visualizations/SingleBarGraphAverage"
 import DialGraph from "../Visualizations/DialGraph"
+import GearVisualization from "../Visualizations/GearViz"
+import TimelineGraph from "../Visualizations/TimelineGraph"
 
 class TeleDash extends Component {
   constructor(props) {
@@ -43,18 +45,63 @@ class TeleDash extends Component {
         </DashboardColumn>
         <DashboardColumn>
           <Panel>
-            Car / Speed / Fuel Metrics
-          </Panel>
-          <Panel>
-            <RPM data={16} size={[400,200]} max={20} min={0} valueName={"sample 3"}/>            
-            {/* TODO: Gears */}
+            <RPM data={16} size={[400,200]} max={20} min={0} valueName={"sample 3"}/>     
+            <GearVisualization data={3} size={[400,40]}/>
             <SingleBarGraph data={5} size={[400,40]} max={100} min={0} valueName={"Gas"} percent={true}/>
             <SingleBarGraph data={15} size={[400,40]} max={100} min={0} valueName={"Charge"} percent={true}/>
           </Panel>
         </DashboardColumn>
         <DashboardColumn>
-          <Panel>Timeline Metrics</Panel>
-          {/* <Panel color="red">Hello World 1.2</Panel> */}
+          <Panel>
+          <TimelineGraph size={[400,150]} max={10} min={0} valueName={"Charge"}
+              data = {[ 
+                  { "time": 1, "value": "2.9" },
+                  { "time": 2, "value": "2.7" },
+                  { "time": 3, "value": "4.3" },
+                  { "time": 4, "value": "4.6" },
+                  { "time": 5, "value": "5" },
+                  { "time": 6, "value": "5.2" },
+                  { "time": 7, "value": "5.1" },
+                  { "time": 8, "value": "4.8" },
+                  { "time": 9, "value": "4.9" },
+                  { "time": 10, "value": "5.1" },
+                  { "time": 11, "value": "5.3" },
+                  { "time": 12, "value": "5.6" },
+                  { "time": 13, "value": "6.2" }]}
+              />
+              <TimelineGraph size={[400,150]} max={10} min={0} valueName={"Charge"}
+              data = {[ 
+                  { "time": 1, "value": "2.9" },
+                  { "time": 2, "value": "2.7" },
+                  { "time": 3, "value": "4.3" },
+                  { "time": 4, "value": "4.6" },
+                  { "time": 5, "value": "5" },
+                  { "time": 6, "value": "5.2" },
+                  { "time": 7, "value": "5.1" },
+                  { "time": 8, "value": "4.8" },
+                  { "time": 9, "value": "4.9" },
+                  { "time": 10, "value": "5.1" },
+                  { "time": 11, "value": "5.3" },
+                  { "time": 12, "value": "5.6" },
+                  { "time": 13, "value": "6.2" }]}
+              />
+              <TimelineGraph size={[400,150]} max={10} min={0} valueName={"Charge"}
+              data = {[ 
+                  { "time": 1, "value": "2.9" },
+                  { "time": 2, "value": "2.7" },
+                  { "time": 3, "value": "4.3" },
+                  { "time": 4, "value": "4.6" },
+                  { "time": 5, "value": "5" },
+                  { "time": 6, "value": "5.2" },
+                  { "time": 7, "value": "5.1" },
+                  { "time": 8, "value": "4.8" },
+                  { "time": 9, "value": "4.9" },
+                  { "time": 10, "value": "5.1" },
+                  { "time": 11, "value": "5.3" },
+                  { "time": 12, "value": "5.6" },
+                  { "time": 13, "value": "6.2" }]}
+              />
+            </Panel>
         </DashboardColumn>
       </Dashboard>
     );

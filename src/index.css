@@ -33,13 +33,43 @@ h3 {
 }
 
 .axisText {
-  font-family: sans-serif;
   font-size: 10px;
   fill: black;
 }
 
 .valueLable {
-  font-family: sans-serif;
   font-size: 20px;
   fill: black;
+}
+
+.gearTextLarge {
+  text-anchor: middle;
+  font-size: 50px;
+  fill: black;
+}
+
+.gearTextMedium {
+  text-anchor: middle;
+  font-size: 35px;
+  fill: #555;
+}
+
+.gearTextSmall {
+  text-anchor: middle;
+  font-size: 25px;
+  fill: #888;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-width: 1.5;
+}
+
+.yAxisGrid line, .yAxisGrid path{
+  stroke: #000;
+  stroke-opacity: 0.2;
+  shape-rendering: crispEdges;
 }
