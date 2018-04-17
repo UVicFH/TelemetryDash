@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import Dashboard, { DashboardColumn } from "./Dashboard";
 import Panel from "./Panel";
 import RPM from "../Visualizations/RPM"
+import CarVisualization from "../Visualizations/CarViz"
 import SingleBarGraph from "../Visualizations/SingleBarGraph"
 import SingleBarGraphAverage from "../Visualizations/SingleBarGraphAverage"
 import DialGraph from "../Visualizations/DialGraph"
@@ -49,6 +50,7 @@ class TeleDash extends Component {
             <GearVisualization data={3} size={[400,40]}/>
             <SingleBarGraph data={5} size={[400,40]} max={100} min={0} valueName={"Gas"} percent={true}/>
             <SingleBarGraph data={15} size={[400,40]} max={100} min={0} valueName={"Charge"} percent={true}/>
+            <CarVisualization data={15} size={[400,500]} max={100} min={0} valueName={"Charge"} percent={true}/>
           </Panel>
         </DashboardColumn>
         <DashboardColumn>
