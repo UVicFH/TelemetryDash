@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 // D3 imports
 import { arc} from "d3-shape";
+import { scaleLinear } from "d3-scale";
 
 class RPM extends Component {
     constructor(props) {
@@ -17,22 +18,25 @@ class RPM extends Component {
         const height = this.props.size[1];
         const radius = (width/2)-25;
         const donutWidth = 25;
-
-        var tau = (.5 * Math.PI);  // this calc is off?
         
+        // CREATE SCALE FOR ARC ANGLE
+        var scaleArc = scaleLinear()
+            .range([-.5, .5])
+            .domain([dataMin, dataMax]);
+
         // CALCULATE BORDER ARC
         var getArcBorder= arc()
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
             .startAngle(-0.5 * Math.PI)
-            .endAngle(tau);
+            .endAngle(0.5 * Math.PI);
 
         // CALCULATE VALUE ARC        
         var getArcValue = arc()
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
             .startAngle(-0.5 * Math.PI)
-            .endAngle((this.props.data/dataMax)*tau); // this calc is off?
+            .endAngle(scaleArc(this.props.data) * Math.PI); // this calc is off?
         
         // CURRENT VALUE
         var valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.data+"km/h")};
