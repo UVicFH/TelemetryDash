@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 // D3 imports
 import { arc} from "d3-shape";
+import { scaleLinear } from "d3-scale";
 
 class DialGraph extends Component {
     constructor(props) {
@@ -18,21 +19,24 @@ class DialGraph extends Component {
         const radius = Math.min(width, height) * 0.40;
         const donutWidth = radius * 0.20;
 
-        var tau = (.75 * Math.PI);  // this calc is off?
+        // CREATE SCALE FOR X-AXIS
+        var scaleArc = scaleLinear()
+            .range([-.75, .75])
+            .domain([dataMin, dataMax]);
         
         // CALCULATE BORDER ARC
         var getArcBorder= arc()
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
             .startAngle(-0.75 * Math.PI)
-            .endAngle(tau);
+            .endAngle(.75 * Math.PI);
 
         // CALCULATE VALUE ARC        
         var getArcValue = arc()
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
             .startAngle(-0.75 * Math.PI)
-            .endAngle((this.props.data/dataMax)*tau); // this calc is off?
+            .endAngle(scaleArc(this.props.data) * Math.PI) ; // this calc is off?
         
         // CURRENT VALUE
         var valueLable = { x: (width/2), y: ((height/2)+10), value: this.props.data};
