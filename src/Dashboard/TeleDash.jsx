@@ -4,13 +4,13 @@ import React, { Component } from "react";
 // Components
 import Dashboard, { DashboardColumn } from "./Dashboard";
 import Panel from "./Panel";
-import RPM from "../Visualizations/RPM"
-import CarVisualization from "../Visualizations/CarViz"
-import SingleBarGraph from "../Visualizations/SingleBarGraph"
-import SingleBarGraphAverage from "../Visualizations/SingleBarGraphAverage"
-import DialGraph from "../Visualizations/DialGraph"
-import GearVisualization from "../Visualizations/GearViz"
-import TimelineGraph from "../Visualizations/TimelineGraph"
+import RPM from "../Visualizations/RPM";
+import CarVisualization from "../Visualizations/CarViz";
+import SingleBarGraph from "../Visualizations/SingleBarGraph";
+import SingleBarGraphAverage from "../Visualizations/SingleBarGraphAverage";
+import DialGraph from "../Visualizations/DialGraph";
+import GearVisualization from "../Visualizations/GearViz";
+import TimelineGraph from "../Visualizations/TimelineGraph";
 
 class TeleDash extends Component {
   constructor(props) {
@@ -28,7 +28,13 @@ class TeleDash extends Component {
         <DashboardColumn>
           <Panel>
             <h3>Driver</h3>
-            <SingleBarGraph data={5} size={[400,40]} max={20} min={0} valueName={"Break"}/>
+            <SingleBarGraph
+              data={
+                this.props.data.test
+                  ? this.props.data.test[this.props.data.test.length - 1].val
+                  : 0
+              }
+              size={[400,40]} max={20} min={0} valueName={"Break"}/>
             <SingleBarGraph data={15} size={[400,40]} max={25} min={0} valueName={"Throttle"}/>
           </Panel>
           <Panel>
