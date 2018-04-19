@@ -1,7 +1,8 @@
-export const acceptData = (existingData, newData) => {
+export const acceptData = (existingData = {}, newData = {}) => {
   const nextData = Object.assign({}, existingData);
-  for (let type in newData) {
-    existingData[type].append(newData[type]);
-  }
+  Object.entries(newData).forEach(([key, value]) => {
+    if (Array.isArray(nextData[key])) nextData[key].push(value);
+    else nextData[key] = [value];
+  });
   return nextData;
 };
