@@ -44,7 +44,7 @@ class App extends Component {
         <AppHeader>
           <AppTitle>UVic Formula Hybrid Telemetry</AppTitle>
         </AppHeader>
-        <TeleDash teleDash />
+        <TeleDash data={this.state.data} />
       </AppContainer>
     );
   }
