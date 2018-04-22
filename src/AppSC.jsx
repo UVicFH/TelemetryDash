@@ -7,12 +7,14 @@ export const AppContainer = styled.div`
 `;
 
 export const AppHeader = styled.header`
-  background-color: #222;
-  padding: 5px;
-  color: white;
+  padding: 15px;
+  border-bottom: 1px solid #1B262E;
   text-align: left;
 `;
 
-export const AppTitle = styled.h1`
-  font-size: 1.25em;
+export const AppTitle = styled.span`
+  color: #495761;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 500;
 `;
