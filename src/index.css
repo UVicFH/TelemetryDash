@@ -8,66 +8,64 @@ body {
 
 
 .outerBar {
-  stroke: #000;
-  stroke-width: .5px;
-  fill: #fff;
+  stroke: #1F2B33;
+  stroke-width: 1px;
+  fill: #2D3B48;
 }
 
 .innerBar {
-  stroke: #000;
-  stroke-width: .5px;
-  fill: #aaa;
+  stroke: #4189E7;
+  stroke-width: 2px;
+  fill: #295285;
 }
 
-hr {
-  margin-top: 25px;
-  border: 0;
-  clear:both;
-  display:block;
-  width: 96%;               
-  background-color:#222;
-  height: 1px;
-}
 
 .axisText {
   font-size: 10px;
-  fill: black;
+  fill: #A3A8A9;
 }
 
 .valueLable {
   font-size: 20px;
-  fill: black;
+  fill: #A3A8A9;
 }
 
 .gearTextLarge {
   text-anchor: middle;
   font-size: 50px;
-  fill: black;
+  fill: #fff;
+  font-weight: 100;
 }
 
 .gearTextMedium {
   text-anchor: middle;
   font-size: 35px;
-  fill: #555;
+  fill: #A3A8A9;
+  font-weight: 100;
 }
 
 .gearTextSmall {
   text-anchor: middle;
   font-size: 25px;
-  fill: #888;
+  fill: #A3A8A9;
+  font-weight: 100;
 }
 
 .line {
   fill: none;
-  stroke: #000;
+  stroke: #3A77C8;
   stroke-linejoin: round;
   stroke-linecap: round;
-  stroke-width: 1.5;
+  stroke-width: 2;
+}
+
+circle {
+  fill: #3A77C8;
 }
 
 .yAxisGrid line, .yAxisGrid path{
-  stroke: #000;
-  stroke-opacity: 0.2;
+  stroke: #18232C;
+  /* stroke-opacity: 1; */
   shape-rendering: crispEdges;
 }
 

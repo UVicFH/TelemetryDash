@@ -8,13 +8,35 @@ class GearVisualization extends Component {
     }
 
     render() {
-        // CALCULATE GEAR VALUES
-        var currentGear = this.props.data == 1 ? "N" : this.props.data;
-        var middleLowerGear = this.props.data-1 == 1 ? "N" : (this.props.data-1 < 1 ? "" : this.props.data-1);
-        var middleUpperGear = this.props.data+1 > 6 ? "" : this.props.data+1;
-        var farthestLowerGear = this.props.data-2 == 1 ? "N" : (this.props.data-2 < 1 ? "" : this.props.data-2);;
-        var farthestUpperGear = this.props.data+2 > 6 ? "" : this.props.data+2;
-        
+        // CALCULATE GEAR VALUES -- fix...
+        var currentGear = this.props.data;
+        var middleLowerGear = "";
+        var middleUpperGear = "";
+        var farthestLowerGear = "";
+        var farthestUpperGear = "";
+
+        if (currentGear == "N") {
+            middleLowerGear = "1";
+            middleUpperGear = "2";
+            farthestLowerGear = "";
+            farthestUpperGear = "3";
+        } else if (currentGear == "1") {
+            middleLowerGear = "";
+            middleUpperGear = "N";
+            farthestLowerGear = "";
+            farthestUpperGear = "2";
+        } else if (currentGear == "2") {
+            middleLowerGear = "N";
+            middleUpperGear = "3";
+            farthestLowerGear = "1";
+            farthestUpperGear = "4";
+        } else {
+            var currentValue = parseInt(currentGear);
+            middleLowerGear = currentValue-1;
+            middleUpperGear = currentValue < 6 ? currentValue+1 : "";
+            farthestLowerGear = currentValue-2;
+            farthestUpperGear = currentValue < 5 ? currentValue+2 : "";
+        }
         return (
             <div> 
                 <label>{this.props.valueName}</label>

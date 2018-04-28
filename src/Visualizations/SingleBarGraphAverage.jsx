@@ -10,11 +10,13 @@ class SingleBarGraphAverage extends Component {
         super(props);
     }
 
+    // todo: needs to have the average bar made once we get that data
     render() {
-        const dataMax = this.props.max
+        const dataMin = this.props.possibleRange[0];
+        const dataMax = this.props.possibleRange[1];
         const barHeight = this.props.size[1] - 15
         const barWidth = this.props.size[0] - 30
-        const xScale = scaleLinear().domain([0, dataMax]).range([0, barWidth])
+        const xScale = scaleLinear().domain([dataMin, dataMax]).range([0, barWidth])
         
         // BAR BORDER
         var borderBar = { x: 0, y: 0, width: xScale(dataMax), height: barHeight};
@@ -23,7 +25,7 @@ class SingleBarGraphAverage extends Component {
         var rangeBar = { x: xScale(this.props.low), y: 0, width: xScale(this.props.high - this.props.low), height: barHeight};
 
         // VALUE BAR
-        var valueBar = { x: xScale(this.props.data), y: 0, width: 5, height: barHeight};
+        var valueBar = { x: xScale(this.props.data), y: 0, width: 8, height: barHeight};
 
         // CURRENT VALUE
         var valueLable = { x: (barWidth + 5), y: ((barHeight/2)+7), value: this.props.data};
@@ -38,15 +40,15 @@ class SingleBarGraphAverage extends Component {
                 <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]} className='single-bar'>
                     <rect className="outerBar"
                         x={borderBar.x}
-                        y={borderBar.y}
+                        y={borderBar.y + borderBar.height/4}
                         width={borderBar.width}
-                        height={borderBar.height} />
-                    <rect className="innerBar"
+                        height={borderBar.height/2} />
+                    {/* <rect className="innerBar"
                         x={rangeBar.x}
-                        y={rangeBar.y}
+                        y={rangeBar.y + rangeBar.height/4}
                         width={rangeBar.width}
-                        height={rangeBar.height} />
-                    <rect //className="innerBar"
+                        height={rangeBar.height/2} /> */}
+                    <rect className="innerBar"
                         x={valueBar.x}
                         y={valueBar.y}
                         width={valueBar.width}

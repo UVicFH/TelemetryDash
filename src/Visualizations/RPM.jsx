@@ -12,8 +12,8 @@ class RPM extends Component {
     }
 
     render() {
-        const dataMin = 0;
-        const dataMax = this.props.max;
+        const dataMin = this.props.possibleRangeRPM[0];
+        const dataMax = this.props.possibleRangeRPM[1];
         const width = this.props.size[0];
         const height = this.props.size[1];
         const radius = (width/2)-25;
@@ -36,10 +36,10 @@ class RPM extends Component {
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
             .startAngle(-0.5 * Math.PI)
-            .endAngle(scaleArc(this.props.data) * Math.PI); // this calc is off?
+            .endAngle(scaleArc(this.props.dataRPM) * Math.PI); // this calc is off?
         
         // CURRENT VALUE
-        var valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.data+"km/h")};
+        var valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.dataSpeed+"km/h")};
 
         // SCALES -- not sure if this is better than using the axis method...
         var axisMin = { x: 15, y: height, value: dataMin}; // display min scale

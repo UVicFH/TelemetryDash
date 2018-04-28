@@ -17,7 +17,8 @@ class DialGraph extends Component {
         const width = this.props.size[0];
         const height = this.props.size[1];
         const radius = Math.min(width, height) * 0.40;
-        const donutWidth = radius * 0.20;
+        // const donutWidth = radius * 0.30;
+        const donutWidth = 15;
 
         // CREATE SCALE FOR X-AXIS
         var scaleArc = scaleLinear()
@@ -26,8 +27,8 @@ class DialGraph extends Component {
         
         // CALCULATE BORDER ARC
         var getArcBorder= arc()
-            .innerRadius(radius - donutWidth)
-            .outerRadius(radius)
+            .innerRadius(radius - donutWidth + donutWidth/4 )
+            .outerRadius(radius - donutWidth/4)
             .startAngle(-0.75 * Math.PI)
             .endAngle(.75 * Math.PI);
 

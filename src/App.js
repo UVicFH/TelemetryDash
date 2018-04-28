@@ -17,8 +17,31 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    const currentTime = Date.now();
+
     this.state = {
-      data: {}
+      data: {
+        test: [{ val: 0, time: currentTime}],
+        brake: [{ val: 0, time: currentTime}],
+        throttle: [{ val: 0, time: currentTime}],
+        TPS: [{ val: 0, time: currentTime}],
+        spkadv: [{ val: 0, time: currentTime}],
+        pw: [{ val: 0, time: currentTime}],
+        duty: [{ val: 0, time: currentTime}],
+        AFR: [{ val: 0, time: currentTime}],
+        AFRtgt: [{ val: 0, time: currentTime}],
+        engineTemp: [{ val: 0, time: currentTime}],
+        MAT: [{ val: 0, time: currentTime}],
+        controllerTemp: [{ val: 0, time: currentTime}],
+        FETMOSHigh: [{ val: 0, time: currentTime}],
+        FETMOSLow: [{ val: 0, time: currentTime}],
+        accumulatorTemp: [{ val: 0, time: currentTime}],
+        speed: [{ val: 0, time: currentTime}],
+        RPM: [{ val: 0, time: currentTime}],
+        fuel: [{ val: 0, time: currentTime}],
+        charge: [{ val: 0, time: currentTime}],
+        gear: [{ val: "N", time: currentTime}],
+      }
     };
   }
 

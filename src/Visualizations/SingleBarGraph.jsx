@@ -11,10 +11,11 @@ class SingleBarGraph extends Component {
     }
 
     render() {
-        const dataMax = this.props.max
-        const barHeight = this.props.size[1] - 15
-        const barWidth = this.props.size[0] - 50
-        const xScale = scaleLinear().domain([0, dataMax]).range([0, barWidth])
+        const dataMin = this.props.possibleRange[0];
+        const dataMax = this.props.possibleRange[1];
+        const barHeight = this.props.size[1] - 15;
+        const barWidth = this.props.size[0] - 50;
+        const xScale = scaleLinear().domain([0, dataMax]).range([0, barWidth]);
         
         // BAR BORDER
         var borderBar = { x: 0, y: 0, width: xScale(dataMax), height: barHeight};
@@ -39,9 +40,9 @@ class SingleBarGraph extends Component {
                 <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]} className='single-bar'>
                     <rect className="outerBar"
                         x={borderBar.x}
-                        y={borderBar.y}
+                        y={borderBar.y + borderBar.height/4}
                         width={borderBar.width}
-                        height={borderBar.height} />
+                        height={borderBar.height/2} />
                     <rect className="innerBar"
                         x={valueBar.x}
                         y={valueBar.y}
