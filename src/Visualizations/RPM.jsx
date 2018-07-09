@@ -51,6 +51,11 @@ class RPM extends Component {
 
         const translateArc = 'translate(' + (height) + ',' + (width / 2) + ')';
 
+        console.log(typeof this.props.dataRPM);
+        console.log(this.props.dataRPM)
+        console.log(scaleArc(10))
+        console.log(getArcValue())
+
         return (
             <div> 
                 <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]} className='dial-chart'>

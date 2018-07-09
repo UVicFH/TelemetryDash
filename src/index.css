@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Serif|Montserrat'); /* titles, body */
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'PT Serif', Roboto;
   background-color: #06121B;
   color: #A3A8A9;
+  font-size: 15px;
+  font-weight: 100;
 }
-
 
 .outerBar {
   stroke: #1F2B33;
@@ -26,8 +29,9 @@ body {
 }
 
 .valueLable {
-  font-size: 20px;
+  font-size: 25px;
   fill: #A3A8A9;
+  text-anchor: middle;
 }
 
 .gearTextLarge {
@@ -65,7 +69,6 @@ circle {
 
 .yAxisGrid line, .yAxisGrid path{
   stroke: #18232C;
-  /* stroke-opacity: 1; */
   shape-rendering: crispEdges;
 }
 
@@ -73,5 +76,5 @@ circle {
   color: #495761;
   font-size: 18px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 300;
 }

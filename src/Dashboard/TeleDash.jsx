@@ -33,9 +33,15 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               <SingleBarGraph
-                valueName={"Break"}
+                valueName={"Test"}
                 data={this.props.data.test[this.props.data.test.length - 1].val}
-                // data={this.props.data.brake[this.props.data.brake.length - 1].val}
+                possibleRange={[0,20]}
+                size={[400,40]}
+                unit={"%"}                
+              /> 
+              <SingleBarGraph
+                valueName={"Break"}
+                data={this.props.data.brake[this.props.data.brake.length - 1].val}
                 possibleRange={[0,100]}
                 size={[400,40]}
                 unit={"%"}                
@@ -53,12 +59,20 @@ class TeleDash extends Component {
             <CardHeader>
               <span className="cardLabel">Engine</span>
             </CardHeader>
-            <CardBody>
+            <CardBody display="flex">
+              <DialGraph 
+                valueName={"Test"}
+                units={"%"}
+                data={this.props.data.test[this.props.data.test.length - 1].val} 
+                size={[100,80]}
+                acceptableRange={[0,100]}
+                possibleRange={[0,50]}
+              />              
               <DialGraph 
                 valueName={"Throttle Position"}
                 units={"%"}
                 data={this.props.data.TPS[this.props.data.TPS.length - 1].val} 
-                size={[100,100]}
+                size={[100,80]}
                 acceptableRange={[0,100]}
                 possibleRange={[0,100]}
               />
@@ -66,7 +80,7 @@ class TeleDash extends Component {
                 valueName={"Spark Advance"} 
                 units={"°"}
                 data={this.props.data.spkadv[this.props.data.spkadv.length - 1].val} 
-                size={[100,100]} 
+                size={[100,80]} 
                 acceptableRange={[20,65]}
                 possibleRange={[0,65]}
               />
@@ -74,7 +88,7 @@ class TeleDash extends Component {
                 valueName={"Pulse Width"} 
                 units={"ms"}
                 data={this.props.data.pw[this.props.data.pw.length - 1].val} 
-                size={[100,100]} 
+                size={[100,80]} 
                 acceptableRange={[1,9]}
                 possibleRange={[0,12]}
               />
@@ -82,7 +96,7 @@ class TeleDash extends Component {
                 valueName={"Duty"} 
                 units={"%"}
                 data={this.props.data.duty[this.props.data.duty.length - 1].val} 
-                size={[100,100]} 
+                size={[100,80]} 
                 acceptableRange={[0,100]}
                 possibleRange={[0,100]}
               />
@@ -90,7 +104,7 @@ class TeleDash extends Component {
                 valueName={"AFR"} 
                 units={""}
                 data={this.props.data.AFR[this.props.data.AFR.length - 1].val} 
-                size={[100,100]} 
+                size={[100,80]} 
                 acceptableRange={[8,15]}
                 possibleRange={[0,22]}
               />
@@ -103,11 +117,20 @@ class TeleDash extends Component {
             <CardBody>
               {/* coolant needs alert over 190 */}
             <SingleBarGraphAverage 
+                valueName={"Test"} 
+                data={this.props.data.test[this.props.data.test.length - 1].val} 
+                size={[400,40]} 
+                acceptableRange={[165,190]}
+                possibleRange={[-20,20]}
+                units={"°"}
+              />
+              <SingleBarGraphAverage 
                 valueName={"Coolant"} 
                 data={this.props.data.engineTemp[this.props.data.engineTemp.length - 1].val} 
                 size={[400,40]} 
                 acceptableRange={[165,190]}
                 possibleRange={[40,200]}
+                units={"°"}
               />
               <SingleBarGraphAverage 
                 valueName={"Manifold Air"} 
@@ -115,6 +138,7 @@ class TeleDash extends Component {
                 size={[400,40]} 
                 acceptableRange={[35,110]}
                 possibleRange={[35,125]}
+                units={"°"}
               />
               <SingleBarGraphAverage 
                 valueName={"Controller"} 
@@ -122,6 +146,7 @@ class TeleDash extends Component {
                 size={[400,40]}                 
                 acceptableRange={[0,50]}
                 possibleRange={[-30,90]}
+                units={"°"}
               />
               <SingleBarGraphAverage 
                 valueName={"FETMOS High"} 
@@ -129,13 +154,15 @@ class TeleDash extends Component {
                 size={[400,40]} 
                 acceptableRange={[0,120]}
                 possibleRange={[0,120]}
+                units={"°"}
               />
               <SingleBarGraphAverage 
-                valueName={"FETMOS Los"} 
+                valueName={"FETMOS Low"} 
                 data={this.props.data.FETMOSLow[this.props.data.FETMOSLow.length - 1].val} 
                 size={[400,40]} 
                 acceptableRange={[0,120]}
                 possibleRange={[0,120]}
+                units={"°"}
               />
               {/* accumulator needs alert over 100 */}              
               <SingleBarGraphAverage 
@@ -144,6 +171,7 @@ class TeleDash extends Component {
                 size={[400,40]} 
                 acceptableRange={[0,100]}
                 possibleRange={[0,120]}
+                units={"°"}
               />
             </CardBody>
           </Card>
@@ -154,7 +182,7 @@ class TeleDash extends Component {
               <RPM 
                 size={[400,200]} 
                 data={16} 
-                dataRPM = {this.props.data.RPM[this.props.data.RPM.length - 1].val}
+                dataRPM = {this.props.data.test[this.props.data.test.length - 1].val*50}
                 dataSpeed = {this.props.data.speed[this.props.data.speed.length - 1].val}
                 possibleRangeRPM={[0,12300]} 
               />     

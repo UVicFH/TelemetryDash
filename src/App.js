@@ -30,8 +30,8 @@ class App extends Component {
         duty: [{ val: 0, time: currentTime}],
         AFR: [{ val: 0, time: currentTime}],
         AFRtgt: [{ val: 0, time: currentTime}],
-        engineTemp: [{ val: 0, time: currentTime}],
-        MAT: [{ val: 0, time: currentTime}],
+        engineTemp: [{ val: 50, time: currentTime}],
+        MAT: [{ val: 50, time: currentTime}],
         controllerTemp: [{ val: 0, time: currentTime}],
         FETMOSHigh: [{ val: 0, time: currentTime}],
         FETMOSLow: [{ val: 0, time: currentTime}],
@@ -61,7 +61,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("Props:", this.state.data);
+    // console.log("Props:", this.state.data);
     return (
       <AppContainer>
         <AppHeader>

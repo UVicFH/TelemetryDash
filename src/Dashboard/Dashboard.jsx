@@ -3,20 +3,20 @@ import styled from "styled-components";
 // Styled Collection
 
 export const Dashboard = styled.div`
+  justify-content: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: flex-start;
 `;
-export default Dashboard;
 
 export const DashboardColumn = styled.div`
+  min-width: 31%;
+  justify-content: space-around;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: center;
-  flex: 1;
-  padding: 15px;
+  flex: 0;
+  padding: 10px;  
 `;

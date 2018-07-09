@@ -17,4 +17,5 @@ export const AppTitle = styled.span`
   font-size: 22px;
   text-transform: uppercase;
   font-weight: 500;
+  font-family: 'Montserrat', serif;
 `;
