@@ -71,4 +71,8 @@ const transformationInfo = {
     key: 'speed',
     map: roundToNDecimals(0),
   },
+  'hybrid/dash/rpm': {
+    key: 'RPM',
+    map: roundToNDecimals(0),
+  },
 };

@@ -182,7 +182,7 @@ class TeleDash extends Component {
               <RPM
                 size={[400,200]}
                 data={16}
-                dataRPM = {this.props.data.test[this.props.data.test.length - 1].val*50}
+                dataRPM = {this.props.data.RPM[this.props.data.RPM.length - 1].val}
                 dataSpeed = {this.props.data.speed[this.props.data.speed.length - 1].val}
                 possibleRangeRPM={[0,12300]}
               />
