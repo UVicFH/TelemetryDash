@@ -53,11 +53,12 @@ class App extends Component {
       console.log("Websocket connected");
     });
     // Modify state when data transmitted
-    socket.on("tele_data", newData =>
+    socket.on("mqttdata", newData => {
+      console.log(newData);
       this.setState({
         data: acceptData(this.state.data, newData)
       })
-    );
+    });
   }
 
   render() {

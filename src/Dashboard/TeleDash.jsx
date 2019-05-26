@@ -103,7 +103,7 @@ class TeleDash extends Component {
               <DialGraph 
                 valueName={"AFR"} 
                 units={""}
-                data={this.props.data.AFR[this.props.data.AFR.length - 1].val} 
+                data={Math.round(this.props.data.AFR[this.props.data.AFR.length - 1].val * 10) / 10} 
                 size={[100,80]} 
                 acceptableRange={[8,15]}
                 possibleRange={[0,22]}
