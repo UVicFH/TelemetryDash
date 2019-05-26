@@ -18,7 +18,7 @@ class RPM extends Component {
         const height = this.props.size[1];
         const radius = (width/2)-25;
         const donutWidth = 25;
-        
+
         // CREATE SCALE FOR ARC ANGLE
         var scaleArc = scaleLinear()
             .range([-.5, .5])
@@ -31,13 +31,13 @@ class RPM extends Component {
             .startAngle(-0.5 * Math.PI)
             .endAngle(0.5 * Math.PI);
 
-        // CALCULATE VALUE ARC        
+        // CALCULATE VALUE ARC
         var getArcValue = arc()
             .innerRadius(radius - donutWidth)
             .outerRadius(radius)
             .startAngle(-0.5 * Math.PI)
             .endAngle(scaleArc(this.props.dataRPM) * Math.PI); // this calc is off?
-        
+
         // CURRENT VALUE
         var valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.dataSpeed+"km/h")};
 
@@ -57,14 +57,14 @@ class RPM extends Component {
         console.log(getArcValue())
 
         return (
-            <div> 
+            <div>
                 <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]} className='dial-chart'>
                     <path className="outerBar"
-                        d={getArcBorder()} 
+                        d={getArcBorder()}
                         transform={translateArc}
                         />
                     <path className="innerBar"
-                        d={getArcValue()} 
+                        d={getArcValue()}
                         transform={translateArc}
                         />
                     <text className="axisText" x={axisMin.x} y={axisMin.y}>{axisMin.value}</text>

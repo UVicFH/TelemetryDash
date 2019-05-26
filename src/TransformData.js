@@ -67,4 +67,8 @@ const transformationInfo = {
     key: 'brake',
     map: roundToNDecimals(0),
   },
+  'hybrid/dash/speed': {
+    key: 'speed',
+    map: roundToNDecimals(0),
+  },
 };
