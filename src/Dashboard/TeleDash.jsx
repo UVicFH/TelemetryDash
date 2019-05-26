@@ -40,7 +40,7 @@ class TeleDash extends Component {
                 unit={"%"}
               />
               <SingleBarGraph
-                valueName={"Break"}
+                valueName={"Brake"}
                 data={this.props.data.brake[this.props.data.brake.length - 1].val}
                 possibleRange={[0,100]}
                 size={[400,40]}

@@ -47,4 +47,24 @@ const transformationInfo = {
     key: 'fuel',
     map: roundToNDecimals(0),
   },
+  'hybrid/engine/pw': {
+    key: 'pw',
+    map: roundToNDecimals(1),
+  },
+  'hybrid/engine/spkadv': {
+    key: 'spkadv',
+    map: roundToNDecimals(1),
+  },
+  'hybrid/dash/gear': {
+    key: 'gear',
+    map: undefined,
+  },
+  'hybrid/driverinputs/throttle': {
+    key: 'throttle',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/driverinputs/brake': {
+    key: 'brake',
+    map: roundToNDecimals(0),
+  },
 };
