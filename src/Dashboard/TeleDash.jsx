@@ -33,13 +33,6 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               <SingleBarGraph
-                valueName={"Test"}
-                data={this.props.data.test[this.props.data.test.length - 1].val}
-                possibleRange={[0,20]}
-                size={[400,40]}
-                unit={"%"}
-              />
-              <SingleBarGraph
                 valueName={"Brake"}
                 data={this.props.data.brake[this.props.data.brake.length - 1].val}
                 possibleRange={[0,100]}
@@ -61,17 +54,9 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody display="flex">
               <DialGraph
-                valueName={"Test"}
-                units={"%"}
-                data={this.props.data.test[this.props.data.test.length - 1].val}
-                size={[100,80]}
-                acceptableRange={[0,100]}
-                possibleRange={[0,50]}
-              />
-              <DialGraph
                 valueName={"Throttle Position"}
                 units={"%"}
-                data={this.props.data.TPS[this.props.data.TPS.length - 1].val}
+                data={this.props.data.TPS.val}
                 size={[100,80]}
                 acceptableRange={[0,100]}
                 possibleRange={[0,100]}
@@ -79,7 +64,7 @@ class TeleDash extends Component {
               <DialGraph
                 valueName={"Spark Advance"}
                 units={"°"}
-                data={this.props.data.spkadv[this.props.data.spkadv.length - 1].val}
+                data={this.props.data.spkadv.val}
                 size={[100,80]}
                 acceptableRange={[20,65]}
                 possibleRange={[0,65]}
@@ -87,7 +72,7 @@ class TeleDash extends Component {
               <DialGraph
                 valueName={"Pulse Width"}
                 units={"ms"}
-                data={this.props.data.pw[this.props.data.pw.length - 1].val}
+                data={this.props.data.pw.val}
                 size={[100,80]}
                 acceptableRange={[1,9]}
                 possibleRange={[0,12]}
@@ -95,7 +80,7 @@ class TeleDash extends Component {
               <DialGraph
                 valueName={"Duty"}
                 units={"%"}
-                data={this.props.data.duty[this.props.data.duty.length - 1].val}
+                data={this.props.data.duty.val}
                 size={[100,80]}
                 acceptableRange={[0,100]}
                 possibleRange={[0,100]}
@@ -103,7 +88,7 @@ class TeleDash extends Component {
               <DialGraph
                 valueName={"AFR"}
                 units={""}
-                data={this.props.data.AFR[this.props.data.AFR.length - 1].val}
+                data={this.props.data.AFR.val}
                 size={[100,80]}
                 acceptableRange={[8,15]}
                 possibleRange={[0,22]}
@@ -116,17 +101,9 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               {/* coolant needs alert over 190 */}
-            <SingleBarGraphAverage
-                valueName={"Test"}
-                data={this.props.data.test[this.props.data.test.length - 1].val}
-                size={[400,40]}
-                acceptableRange={[165,190]}
-                possibleRange={[-20,20]}
-                units={"°"}
-              />
               <SingleBarGraphAverage
                 valueName={"Coolant"}
-                data={this.props.data.engineTemp[this.props.data.engineTemp.length - 1].val}
+                data={this.props.data.engineTemp.val}
                 size={[400,40]}
                 acceptableRange={[165,190]}
                 possibleRange={[40,200]}
@@ -134,7 +111,7 @@ class TeleDash extends Component {
               />
               <SingleBarGraphAverage
                 valueName={"Manifold Air"}
-                data={this.props.data.MAT[this.props.data.MAT.length - 1].val}
+                data={this.props.data.MAT.val}
                 size={[400,40]}
                 acceptableRange={[35,110]}
                 possibleRange={[35,125]}
@@ -142,7 +119,7 @@ class TeleDash extends Component {
               />
               <SingleBarGraphAverage
                 valueName={"Controller"}
-                data={this.props.data.controllerTemp[this.props.data.controllerTemp.length - 1].val}
+                data={this.props.data.controllerTemp.val}
                 size={[400,40]}
                 acceptableRange={[0,50]}
                 possibleRange={[-30,90]}
@@ -150,7 +127,7 @@ class TeleDash extends Component {
               />
               <SingleBarGraphAverage
                 valueName={"FETMOS High"}
-                data={this.props.data.FETMOSHigh[this.props.data.FETMOSHigh.length - 1].val}
+                data={this.props.data.FETMOSHigh.val}
                 size={[400,40]}
                 acceptableRange={[0,120]}
                 possibleRange={[0,120]}
@@ -158,7 +135,7 @@ class TeleDash extends Component {
               />
               <SingleBarGraphAverage
                 valueName={"FETMOS Low"}
-                data={this.props.data.FETMOSLow[this.props.data.FETMOSLow.length - 1].val}
+                data={this.props.data.FETMOSLow.val}
                 size={[400,40]}
                 acceptableRange={[0,120]}
                 possibleRange={[0,120]}
@@ -167,7 +144,7 @@ class TeleDash extends Component {
               {/* accumulator needs alert over 100 */}
               <SingleBarGraphAverage
                 valueName={"Accumulator"}
-                data={this.props.data.accumulatorTemp[this.props.data.accumulatorTemp.length - 1].val}
+                data={this.props.data.accumulatorTemp.val}
                 size={[400,40]}
                 acceptableRange={[0,100]}
                 possibleRange={[0,120]}
@@ -188,7 +165,7 @@ class TeleDash extends Component {
               />
               <SingleBarGraph
                 valueName={"Gas"}
-                data={this.props.data.fuel[this.props.data.fuel.length - 1].val}
+                data={this.props.data.fuel.val}
                 size={[400,40]}
                 acceptableRange={[0,100]}
                 possibleRange={[0,100]}
@@ -196,14 +173,14 @@ class TeleDash extends Component {
               />
               <SingleBarGraph
                 valueName={"Charge"}
-                data={this.props.data.charge[this.props.data.charge.length - 1].val}
+                data={this.props.data.charge.val}
                 size={[400,40]}
                 acceptableRange={[0,100]}
                 possibleRange={[0,100]}
                 unit={"%"}
               />
               <GearVisualization
-                data={this.props.data.gear[this.props.data.gear.length - 1].val}
+                data={this.props.data.gear.val}
                 size={[400,40]}
               />
               {/* todo: break into wheels, rpm */}
@@ -221,70 +198,49 @@ class TeleDash extends Component {
         <DashboardColumn>
           <Card>
             <CardHeader>
-              <span className="cardLabel">Driver</span>
+              <span className="cardLabel">Speed</span>
             </CardHeader>
             <CardBody>
-              <TimelineGraph size={[400,150]} max={10} min={0} valueName={"Charge"}
-                data = {[
-                  { "time": 1, "value": "2.9" },
-                  { "time": 2, "value": "2.7" },
-                  { "time": 3, "value": "4.3" },
-                  { "time": 4, "value": "4.6" },
-                  { "time": 5, "value": "5" },
-                  { "time": 6, "value": "5.2" },
-                  { "time": 7, "value": "5.1" },
-                  { "time": 8, "value": "4.8" },
-                  { "time": 9, "value": "4.9" },
-                  { "time": 10, "value": "5.1" },
-                  { "time": 11, "value": "5.3" },
-                  { "time": 12, "value": "5.6" },
-                  { "time": 13, "value": "6.2" }]}
+              <TimelineGraph size={[400,150]} max={105} min={0} valueName={"Charge"}
+                data={this.props.data.speed.map((v, i) => {
+                  return {time: i+1, value: v.val};
+                })}
                 />
                 </CardBody>
             </Card>
             <Card>
               <CardHeader>
-                <span className="cardLabel">Driver</span>
+                <span className="cardLabel">Throttle</span>
               </CardHeader>
               <CardBody>
-                <TimelineGraph size={[400,150]} max={10} min={0} valueName={"Charge"}
-                  data = {[
-                    { "time": 1, "value": "2.9" },
-                    { "time": 2, "value": "2.7" },
-                    { "time": 3, "value": "4.3" },
-                    { "time": 4, "value": "4.6" },
-                    { "time": 5, "value": "5" },
-                    { "time": 6, "value": "5.2" },
-                    { "time": 7, "value": "5.1" },
-                    { "time": 8, "value": "4.8" },
-                    { "time": 9, "value": "4.9" },
-                    { "time": 10, "value": "5.1" },
-                    { "time": 11, "value": "5.3" },
-                    { "time": 12, "value": "5.6" },
-                    { "time": 13, "value": "6.2" }]}
+                <TimelineGraph size={[400,150]} max={100} min={0} valueName={"Charge"}
+                  data={this.props.data.throttle.map((v, i) => {
+                    return {time: i+1, value: v.val};
+                  })}
                 />
               </CardBody>
             </Card>
             <Card>
               <CardHeader>
-                <span className="cardLabel">Driver</span>
+                <span className="cardLabel">Brake</span>
               </CardHeader>
               <CardBody>
-                <TimelineGraph size={[400,150]} max={10} min={0} valueName={"Charge"}
-                  data = {[
-                    { "time": 1, "value": "2.9" },
-                    { "time": 2, "value": "2.7" },
-                    { "time": 3, "value": "4.3" },
-                    { "time": 4, "value": "4.6" },
-                    { "time": 5, "value": "5" },
-                    { "time": 6, "value": "5.2" },
-                    { "time": 7, "value": "5.1" },
-                    { "time": 8, "value": "4.8" },
-                    { "time": 9, "value": "4.9" },
-                    { "time": 10, "value": "5.1" },
-                    { "time": 11, "value": "5.3" },
-                    { "time": 12, "value": "5.6" },
-                    { "time": 13, "value": "6.2" }]}
+                <TimelineGraph size={[400,150]} max={100} min={0} valueName={"Charge"}
+                  data={this.props.data.brake.map((v, i) => {
+                    return {time: i+1, value: v.val};
+                  })}
+                />
+              </CardBody>
+            </Card>
+            <Card>
+              <CardHeader>
+                <span className="cardLabel">Engine RPM</span>
+              </CardHeader>
+              <CardBody>
+                <TimelineGraph size={[400,150]} max={12000} min={0} valueName={"Charge"}
+                  data={this.props.data.RPM.map((v, i) => {
+                    return {time: i+1, value: v.val};
+                  })}
                 />
               </CardBody>
             </Card>

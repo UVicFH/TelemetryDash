@@ -13,10 +13,14 @@ export const acceptData = (existingData = {}, newData = {}) => {
       nextData[nextKey].push({
         val: map ? map(value) : value,
       });
+
+      if (nextData[nextKey].length >= 20) {
+        nextData[nextKey].shift();
+      }
     } else {
-      nextData[nextKey] = [{
+      nextData[nextKey] = {
         val: map ? map(value) : value,
-      }];
+      };
     }
   });
 
@@ -61,11 +65,11 @@ const transformationInfo = {
   },
   'hybrid/driverinputs/throttle': {
     key: 'throttle',
-    map: roundToNDecimals(0),
+    map: (val) => (roundToNDecimals(0)(val) / 2),
   },
   'hybrid/driverinputs/brake': {
     key: 'brake',
-    map: roundToNDecimals(0),
+    map: (val) => (roundToNDecimals(0)(val) / 2),
   },
   'hybrid/dash/speed': {
     key: 'speed',
@@ -73,6 +77,14 @@ const transformationInfo = {
   },
   'hybrid/dash/rpm': {
     key: 'RPM',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/engine/temperature': {
+    key: 'engineTemp',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/engine/MAT': {
+    key: 'MAT',
     map: roundToNDecimals(0),
   },
 };

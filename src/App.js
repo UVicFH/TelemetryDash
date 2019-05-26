@@ -22,38 +22,39 @@ class App extends Component {
     this.state = {
       data: {
         test: [{ val: 0, time: currentTime}],
-        brake: [{ val: 0, time: currentTime}],
-        throttle: [{ val: 0, time: currentTime}],
-        TPS: [{ val: 0, time: currentTime}],
-        spkadv: [{ val: 0, time: currentTime}],
-        pw: [{ val: 0, time: currentTime}],
-        duty: [{ val: 0, time: currentTime}],
-        AFR: [{ val: 0, time: currentTime}],
-        AFRtgt: [{ val: 0, time: currentTime}],
-        engineTemp: [{ val: 50, time: currentTime}],
-        MAT: [{ val: 50, time: currentTime}],
-        controllerTemp: [{ val: 0, time: currentTime}],
-        FETMOSHigh: [{ val: 0, time: currentTime}],
-        FETMOSLow: [{ val: 0, time: currentTime}],
-        accumulatorTemp: [{ val: 0, time: currentTime}],
         speed: [{ val: 0, time: currentTime}],
+        throttle: [{ val: 0, time: currentTime}],
+        brake: [{ val: 0, time: currentTime}],
         RPM: [{ val: 0, time: currentTime}],
-        fuel: [{ val: 0, time: currentTime}],
-        charge: [{ val: 0, time: currentTime}],
-        gear: [{ val: "N", time: currentTime}],
+        TPS: { val: 0, time: currentTime},
+        spkadv: { val: 0, time: currentTime},
+        pw: { val: 0, time: currentTime},
+        duty: { val: 0, time: currentTime},
+        AFR: { val: 0, time: currentTime},
+        AFRtgt: { val: 0, time: currentTime},
+        engineTemp: { val: 50, time: currentTime},
+        MAT: { val: 50, time: currentTime},
+        controllerTemp: { val: 0, time: currentTime},
+        FETMOSHigh: { val: 0, time: currentTime},
+        FETMOSLow: { val: 0, time: currentTime},
+        accumulatorTemp: { val: 0, time: currentTime},
+        fuel: { val: 0, time: currentTime},
+        charge: { val: 0, time: currentTime},
+        gear: { val: "N", time: currentTime},
       }
     };
   }
 
   componentDidMount() {
     // TODO: Extract into constants file or .env
-    const socket = socketClient("http://localhost:3000/");
+    const socket = socketClient("http://192.168.1.41:3000/");
+    // const socket = socketClient("http://localhost:3000/");
     // Acknowledge connection
     socket.on("connect", () => {
       console.log("Websocket connected");
     });
     // Modify state when data transmitted
-    socket.on("mqttdata", newData => {
+    socket.on("tele_data", newData => {
       console.log(newData);
       this.setState({
         data: acceptData(this.state.data, newData)
