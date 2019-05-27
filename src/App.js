@@ -20,6 +20,7 @@ class App extends Component {
     const currentTime = Date.now();
 
     this.state = {
+      connectionState: 'disconnected',
       data: {
         test: [{ val: 0, time: currentTime}],
         speed: [{ val: 0, time: currentTime}],
@@ -53,10 +54,17 @@ class App extends Component {
     // TODO: Extract into constants file or .env
     // const socket = socketClient('http://192.168.1.41:3000/');
     const socket = socketClient('http://localhost:3000/');
-    // Acknowledge connection
+
     socket.on('connect', () => {
       console.log('Websocket connected');
+      this.setState({connectionState: 'connected'});
     });
+
+    socket.on('disconnect', () => {
+      console.log('Websocket disconnected');
+      this.setState({connectionState: 'disconnected'});
+    });
+
     // Modify state when data transmitted
     socket.on('tele_data', newData => {
       // console.log(newData);
@@ -72,7 +80,14 @@ class App extends Component {
       <AppContainer>
         <AppHeader>
           <AppTitle>UVic Formula Hybrid Telemetry</AppTitle>
-          <AppTitle style={{float: 'right'}}>Test</AppTitle>
+          <AppTitle
+            style={{
+              float: 'right',
+              color: this.state.connectionState === 'disconnected' ? '#ff0000' : '',
+            }}
+          >
+            {this.state.connectionState}
+          </AppTitle>
         </AppHeader>
         <TeleDash data={this.state.data} />
       </AppContainer>
