@@ -1,10 +1,10 @@
 // Framework
-import React, { Component } from "react";
-// import styled from "styled-components";
+import React, { Component } from 'react';
+// import styled from 'styled-components';
 
 // D3 imports
-import { arc } from "d3-shape";
-import { scaleLinear } from "d3-scale";
+import { arc } from 'd3-shape';
+import { scaleLinear } from 'd3-scale';
 
 class RPM extends Component {
   render() {
@@ -35,15 +35,15 @@ class RPM extends Component {
       .endAngle(scaleArc(this.props.dataRPM) * Math.PI); // this calc is off?
 
     // CURRENT VALUE
-    const valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.dataSpeed+"km/h")};
+    const valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.dataSpeed+'km/h')};
 
     // SCALES -- not sure if this is better than using the axis method...
     const axisMin = { x: 15, y: height, value: dataMin}; // display min scale
     const axisMax = { x: width-15, y: height, value: dataMax}; // display max scale
 
     // RPM LABLE
-    const rpmLableTop = { x: width*.80, y: height*.25, value: "x1000"}; // display max scale
-    const rpmLableBottom = { x: width*.80, y: height*.25+20, value: "RPM"}; // display max scale
+    const rpmLableTop = { x: width*.80, y: height*.25, value: 'x1000'}; // display max scale
+    const rpmLableBottom = { x: width*.80, y: height*.25+20, value: 'RPM'}; // display max scale
 
     const translateArc = 'translate(' + (height) + ',' + (width / 2) + ')';
 
@@ -60,27 +60,27 @@ class RPM extends Component {
           height={this.props.size[1]}
           className='dial-chart'
         >
-          <path className="outerBar"
+          <path className='outerBar'
             d={getArcBorder()}
             transform={translateArc}
           />
-          <path className="innerBar"
+          <path className='innerBar'
             d={getArcValue()}
             transform={translateArc}
           />
-          <text className="axisText" x={axisMin.x} y={axisMin.y}>
+          <text className='axisText' x={axisMin.x} y={axisMin.y}>
             {axisMin.value}
           </text>
-          <text className="axisText" x={axisMax.x} y={axisMax.y}>
+          <text className='axisText' x={axisMax.x} y={axisMax.y}>
             {axisMax.value}
           </text>
-          <text className="valueLable" x={valueLable.x} y={valueLable.y}>
+          <text className='valueLable' x={valueLable.x} y={valueLable.y}>
             {valueLable.value}
           </text>
-          <text className="valueLable" x={rpmLableTop.x} y={rpmLableTop.y}>
+          <text className='valueLable' x={rpmLableTop.x} y={rpmLableTop.y}>
             {rpmLableTop.value}
           </text>
-          <text className="valueLable" x={rpmLableBottom.x} y={rpmLableBottom.y}>
+          <text className='valueLable' x={rpmLableBottom.x} y={rpmLableBottom.y}>
             {rpmLableBottom.value}
           </text>
         </svg>

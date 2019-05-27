@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // Styled Collection
 export const Card = styled.div`
@@ -20,7 +20,7 @@ export const CardBody = styled.div`
   background-color: #111C24;
   color: #A3A8A9;
   padding: 10px; 
-  display:  ${props => props.display || "block" }; 
+  display:  ${props => props.display || 'block' }; 
   flex-wrap: wrap;
   justify-content: center;
 `;

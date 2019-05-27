@@ -1,12 +1,12 @@
 // Framework
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-// import styled from "styled-components";
-import { Label, Viz, VizGroup, LabelValue } from "./VizContainers";
-import styled from "styled-components";
+// import styled from 'styled-components';
+import { Label, Viz, VizGroup, LabelValue } from './VizContainers';
+import styled from 'styled-components';
 
 // D3 imports
-import { scaleLinear } from "d3-scale";
+import { scaleLinear } from 'd3-scale';
 
 class SingleBarGraph extends Component {
   render() {
@@ -21,7 +21,7 @@ class SingleBarGraph extends Component {
     const borderBar = {
       x: 0,
       y: 0,
-      width: barWidth + "%",
+      width: barWidth + '%',
       height: barHeight,
     };
 
@@ -29,7 +29,7 @@ class SingleBarGraph extends Component {
     const valueBar = {
       x: 0,
       y: 0,
-      width: xScale(this.props.data) + "%",
+      width: xScale(this.props.data) + '%',
       height: barHeight,
     };
 
@@ -49,7 +49,7 @@ class SingleBarGraph extends Component {
     };
     // display max scale
     const axisMax = {
-      x: barWidth + "%",
+      x: barWidth + '%',
       y: barHeight + 15,
       value: dataMax,
     };
@@ -64,21 +64,21 @@ class SingleBarGraph extends Component {
             height={this.props.size[1]}
             className='single-bar'
           >
-            <rect className="outerBar"
-              x={borderBar.x + "%"}
+            <rect className='outerBar'
+              x={borderBar.x + '%'}
               y={borderBar.y + borderBar.height/4}
               width={borderBar.width}
               width={borderBar.width}
               height={borderBar.height/2} />
-            <rect className="innerBar"
-              x={valueBar.x + "%"}
+            <rect className='innerBar'
+              x={valueBar.x + '%'}
               y={valueBar.y}
               width={valueBar.width}
               height={valueBar.height} />
-            <text className="axisText" x={axisMin.x} y={axisMin.y}>
+            <text className='axisText' x={axisMin.x} y={axisMin.y}>
               {axisMin.value}
             </text>
-            <text className="axisText" x={axisMax.x} y={axisMax.y} textAnchor="end">
+            <text className='axisText' x={axisMax.x} y={axisMax.y} textAnchor='end'>
               {axisMax.value}
             </text>
           </svg>

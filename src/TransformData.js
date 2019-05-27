@@ -1,3 +1,5 @@
+const TIMELINE_GRAPH_POINTS = 20;
+
 export const acceptData = (existingData = {}, newData = {}) => {
   const nextData = Object.assign({}, existingData);
 
@@ -14,7 +16,7 @@ export const acceptData = (existingData = {}, newData = {}) => {
         val: map ? map(value) : value,
       });
 
-      if (nextData[nextKey].length >= 20) {
+      if (nextData[nextKey].length >= TIMELINE_GRAPH_POINTS) {
         nextData[nextKey].shift();
       }
     } else {

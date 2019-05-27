@@ -1,13 +1,13 @@
 // Framework
-import React, { Component } from "react";
-// import styled from "styled-components";
+import React, { Component } from 'react';
+// import styled from 'styled-components';
 
 // D3 imports
-import { scaleLinear } from "d3-scale";
-import { line } from "d3-shape";
-import { extent } from "d3-array";
-import { select } from "d3-selection";
-import { axisBottom, axisLeft } from "d3-axis";
+import { scaleLinear } from 'd3-scale';
+import { line } from 'd3-shape';
+import { extent } from 'd3-array';
+import { select } from 'd3-selection';
+import { axisBottom, axisLeft } from 'd3-axis';
 
 class TimelineGraph extends Component {
   // TODO: switcher for data type, tooltip hovering,
@@ -19,7 +19,7 @@ class TimelineGraph extends Component {
     const margin = 10;
 
     // todo: time based scale if required
-    // const parseTime = timeParse("%d-%b-%y");
+    // const parseTime = timeParse('%d-%b-%y');
 
     // CREATE SCALE FOR X-AXIS
     const scaleX = scaleLinear()
@@ -46,7 +46,7 @@ class TimelineGraph extends Component {
       .scale(scaleY)
       .ticks(10)
       .tickSize(-width)
-      .tickFormat("");
+      .tickFormat('');
 
     // DRAW THE GRAPH LINE
     const getLine = line()
@@ -72,26 +72,26 @@ class TimelineGraph extends Component {
           className='single-bar'
         >
           <g
-            className="yAxisGrid"
+            className='yAxisGrid'
             ref={node => select(node).call(yAxisGrid)}
             transform={translateMargins}
           />
           <path
-            className="line"
+            className='line'
             d={getLine(this.props.data)}
             transform={translateMargins}
           />
           <g
-            className="yAxis"
+            className='yAxis'
             ref={node => select(node).call(yAxis)}
             transform={translateMargins}
           />
           <g
-            className="xAxis"
+            className='xAxis'
             ref={node => select(node).call(xAxis)}
             transform={translateAxisBottom}
           />
-          <g className="scatter" transform={translateMargins}>
+          <g className='scatter' transform={translateMargins}>
             {circlePoints.map(circlePoint => (
               <circle
                 cx={circlePoint.x}

@@ -1,17 +1,17 @@
 // Framework
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // Libraries & Utils
-import socketClient from "socket.io-client";
-import { acceptData } from "./TransformData";
+import socketClient from 'socket.io-client';
+import { acceptData } from './TransformData';
 
 // Static
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
 // Components
-import { AppContainer, AppHeader, AppLogo, AppTitle } from "./AppSC";
-import TeleDash from "./Dashboard/TeleDash";
+import { AppContainer, AppHeader, AppLogo, AppTitle } from './AppSC';
+import TeleDash from './Dashboard/TeleDash';
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class App extends Component {
         accumulatorTemp: { val: 0, time: currentTime},
         fuel: { val: 0, time: currentTime},
         charge: { val: 0, time: currentTime},
-        gear: { val: "N", time: currentTime},
+        gear: { val: 'N', time: currentTime},
         brakeTempLF: { val: 50, time: currentTime },
         brakeTempRF: { val: 50, time: currentTime },
         brakeTempLB: { val: 50, time: currentTime },
@@ -51,14 +51,14 @@ class App extends Component {
 
   componentDidMount() {
     // TODO: Extract into constants file or .env
-    // const socket = socketClient("http://192.168.1.41:3000/");
-    const socket = socketClient("http://localhost:3000/");
+    // const socket = socketClient('http://192.168.1.41:3000/');
+    const socket = socketClient('http://localhost:3000/');
     // Acknowledge connection
-    socket.on("connect", () => {
-      console.log("Websocket connected");
+    socket.on('connect', () => {
+      console.log('Websocket connected');
     });
     // Modify state when data transmitted
-    socket.on("tele_data", newData => {
+    socket.on('tele_data', newData => {
       // console.log(newData);
       this.setState({
         data: acceptData(this.state.data, newData)
@@ -67,7 +67,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log("Props:", this.state.data);
+    // console.log('Props:', this.state.data);
     return (
       <AppContainer>
         <AppHeader>
