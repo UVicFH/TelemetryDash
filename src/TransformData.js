@@ -65,11 +65,11 @@ const transformationInfo = {
   },
   'hybrid/driverinputs/throttle': {
     key: 'throttle',
-    map: (val) => (roundToNDecimals(0)(val) / 2),
+    map: (val) => (roundToNDecimals(0)(val / 2)),
   },
   'hybrid/driverinputs/brake': {
     key: 'brake',
-    map: (val) => (roundToNDecimals(0)(val) / 2),
+    map: (val) => (roundToNDecimals(0)(val / 2)),
   },
   'hybrid/dash/speed': {
     key: 'speed',
@@ -85,6 +85,22 @@ const transformationInfo = {
   },
   'hybrid/engine/MAT': {
     key: 'MAT',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/dash/brake_tempLF': {
+    key: 'brakeTempLF',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/dash/brake_tempRF': {
+    key: 'brakeTempRF',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/dash/brake_tempLR': {
+    key: 'brakeTempLB',
+    map: roundToNDecimals(0),
+  },
+  'hybrid/dash/brake_tempRR': {
+    key: 'brakeTempRB',
     map: roundToNDecimals(0),
   },
 };

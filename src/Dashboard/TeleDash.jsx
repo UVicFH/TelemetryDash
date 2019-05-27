@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 
 // Components
-import {Dashboard, DashboardColumn} from "./Dashboard";
-import {Card, CardHeader, CardBody} from "./Card";
+import { Dashboard, DashboardColumn } from "./Dashboard";
+import { Card, CardHeader, CardBody } from "./Card";
 import RPM from "../Visualizations/RPM";
 import CarVisualization from "../Visualizations/CarViz";
 import SingleBarGraph from "../Visualizations/SingleBarGraph";
@@ -19,8 +19,8 @@ class TeleDash extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log("Getting new props");
-    console.log(props);
+    // console.log("Getting new props");
+    // console.log(props);
   }
 
   render() {
@@ -188,7 +188,7 @@ class TeleDash extends Component {
                 valueName={""}
                 data={this.props.data}
                 size={[400,500]}
-                max={25}
+                max={250}
                 min={0}
                 percent={true}
               />
@@ -205,45 +205,45 @@ class TeleDash extends Component {
                 data={this.props.data.speed.map((v, i) => {
                   return {time: i+1, value: v.val};
                 })}
-                />
-                </CardBody>
-            </Card>
-            <Card>
-              <CardHeader>
-                <span className="cardLabel">Throttle</span>
-              </CardHeader>
-              <CardBody>
-                <TimelineGraph size={[400,150]} max={100} min={0} valueName={"Charge"}
-                  data={this.props.data.throttle.map((v, i) => {
-                    return {time: i+1, value: v.val};
-                  })}
-                />
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader>
-                <span className="cardLabel">Brake</span>
-              </CardHeader>
-              <CardBody>
-                <TimelineGraph size={[400,150]} max={100} min={0} valueName={"Charge"}
-                  data={this.props.data.brake.map((v, i) => {
-                    return {time: i+1, value: v.val};
-                  })}
-                />
-              </CardBody>
-            </Card>
-            <Card>
-              <CardHeader>
-                <span className="cardLabel">Engine RPM</span>
-              </CardHeader>
-              <CardBody>
-                <TimelineGraph size={[400,150]} max={12000} min={0} valueName={"Charge"}
-                  data={this.props.data.RPM.map((v, i) => {
-                    return {time: i+1, value: v.val};
-                  })}
-                />
-              </CardBody>
-            </Card>
+              />
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader>
+              <span className="cardLabel">Throttle</span>
+            </CardHeader>
+            <CardBody>
+              <TimelineGraph size={[400,150]} max={100} min={0} valueName={"Charge"}
+                data={this.props.data.throttle.map((v, i) => {
+                  return {time: i+1, value: v.val};
+                })}
+              />
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader>
+              <span className="cardLabel">Brake</span>
+            </CardHeader>
+            <CardBody>
+              <TimelineGraph size={[400,150]} max={100} min={0} valueName={"Charge"}
+                data={this.props.data.brake.map((v, i) => {
+                  return {time: i+1, value: v.val};
+                })}
+              />
+            </CardBody>
+          </Card>
+          <Card>
+            <CardHeader>
+              <span className="cardLabel">Engine RPM</span>
+            </CardHeader>
+            <CardBody>
+              <TimelineGraph size={[400,150]} max={12000} min={0} valueName={"Charge"}
+                data={this.props.data.RPM.map((v, i) => {
+                  return {time: i+1, value: v.val};
+                })}
+              />
+            </CardBody>
+          </Card>
         </DashboardColumn>
       </Dashboard>
     );

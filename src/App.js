@@ -51,15 +51,15 @@ class App extends Component {
 
   componentDidMount() {
     // TODO: Extract into constants file or .env
-    const socket = socketClient("http://192.168.1.41:3000/");
-    // const socket = socketClient("http://localhost:3000/");
+    // const socket = socketClient("http://192.168.1.41:3000/");
+    const socket = socketClient("http://localhost:3000/");
     // Acknowledge connection
     socket.on("connect", () => {
       console.log("Websocket connected");
     });
     // Modify state when data transmitted
     socket.on("tele_data", newData => {
-      console.log(newData);
+      // console.log(newData);
       this.setState({
         data: acceptData(this.state.data, newData)
       })

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 // Styled Collection
-
 export const Label = styled.div`
   flex: 0 0 75px;
   font-size: 15px;
