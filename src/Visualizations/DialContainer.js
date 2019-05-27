@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Card = styled.div`
   flex-grow: 1;
   // flex: none;
-  width: ${props => props.width + "px" || "100%"};
+  width: ${props => props.width + 'px' || '100%'};
   margin: 10px;
 `;
 

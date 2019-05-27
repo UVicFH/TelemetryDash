@@ -35,17 +35,22 @@ class RPM extends Component {
       .endAngle(scaleArc(this.props.dataRPM) * Math.PI); // this calc is off?
 
     // CURRENT VALUE
-    const valueLable = { x: (width/2), y: ((height/2)+10), value: (this.props.dataSpeed+'km/h')};
+    const speedLable = {
+      x: (width/2),
+      y: ((height/2)+10),
+      value: `${this.props.dataSpeed} km/h`,
+    };
+
+    const RPMLable = {
+      x: (width/2),
+      y: ((height/2) + 70),
+      value: `${this.props.dataRPM} RPM`,
+    };
 
     // SCALES -- not sure if this is better than using the axis method...
     const axisMin = { x: 15, y: height, value: dataMin}; // display min scale
     const axisMax = { x: width-15, y: height, value: dataMax}; // display max scale
-
-    // RPM LABLE
-    const rpmLableTop = { x: width*.80, y: height*.25, value: 'x1000'}; // display max scale
-    const rpmLableBottom = { x: width*.80, y: height*.25+20, value: 'RPM'}; // display max scale
-
-    const translateArc = 'translate(' + (height) + ',' + (width / 2) + ')';
+    const translateArc = `translate(${height},${width / 2})`;
 
     // console.log(typeof this.props.dataRPM);
     // console.log(this.props.dataRPM)
@@ -74,14 +79,11 @@ class RPM extends Component {
           <text className='axisText' x={axisMax.x} y={axisMax.y}>
             {axisMax.value}
           </text>
-          <text className='valueLable' x={valueLable.x} y={valueLable.y}>
-            {valueLable.value}
+          <text className='valueLable' x={speedLable.x} y={speedLable.y}>
+            {speedLable.value}
           </text>
-          <text className='valueLable' x={rpmLableTop.x} y={rpmLableTop.y}>
-            {rpmLableTop.value}
-          </text>
-          <text className='valueLable' x={rpmLableBottom.x} y={rpmLableBottom.y}>
-            {rpmLableBottom.value}
+          <text className='valueLable' x={RPMLable.x} y={RPMLable.y}>
+            {RPMLable.value}
           </text>
         </svg>
       </div>

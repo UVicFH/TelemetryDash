@@ -1,11 +1,11 @@
 // Framework
-import React, { Component } from "react";
-// import styled from "styled-components";
+import React, { Component } from 'react';
+// import styled from 'styled-components';
 
 // D3 imports
-import { arc } from "d3-shape";
-import { scaleLinear } from "d3-scale";
-import { Card, CardLabel, CardBody } from "./DialContainer";
+import { arc } from 'd3-shape';
+import { scaleLinear } from 'd3-scale';
+import { Card, CardLabel, CardBody } from './DialContainer';
 
 class DialGraph extends Component {
   render() {
@@ -55,30 +55,30 @@ class DialGraph extends Component {
             height={this.props.size[1]}
             className='dial-chart'
           >
-            <path className="outerBar"
+            <path className='outerBar'
               d={getArcBorder()}
               transform={translateArc}
             />
-            <path className="innerBar"
+            <path className='innerBar'
               d={getArcValue()}
               transform={translateArc}
             />
             <text
-              className="axisText"
+              className='axisText'
               x={axisMin.x}
               y={axisMin.y}
             >
               {axisMin.value}
             </text>
             <text
-              className="axisText"
+              className='axisText'
               x={axisMax.x}
-              y={axisMax.y} textAnchor="end"
+              y={axisMax.y} textAnchor='end'
             >
               {axisMax.value}
             </text>
             <text
-              className="valueLable"
+              className='valueLable'
               x={valueLable.x}
               y={valueLable.y}
             >

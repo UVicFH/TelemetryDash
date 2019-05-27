@@ -45,7 +45,7 @@ class App extends Component {
         brakeTempRF: { val: 50, time: currentTime },
         brakeTempLB: { val: 50, time: currentTime },
         brakeTempRB: { val: 50, time: currentTime },
-      }
+      },
     };
   }
 
@@ -61,8 +61,8 @@ class App extends Component {
     socket.on('tele_data', newData => {
       // console.log(newData);
       this.setState({
-        data: acceptData(this.state.data, newData)
-      })
+        data: acceptData(this.state.data, newData),
+      });
     });
   }
 
@@ -72,6 +72,7 @@ class App extends Component {
       <AppContainer>
         <AppHeader>
           <AppTitle>UVic Formula Hybrid Telemetry</AppTitle>
+          <AppTitle style={{float: 'right'}}>Test</AppTitle>
         </AppHeader>
         <TeleDash data={this.state.data} />
       </AppContainer>

@@ -201,7 +201,7 @@ class TeleDash extends Component {
               <span className='cardLabel'>Speed</span>
             </CardHeader>
             <CardBody>
-              <TimelineGraph size={[400,150]} max={105} min={0} valueName={'Charge'}
+              <TimelineGraph size={[450,150]} max={105} min={0} valueName={'Charge'}
                 data={this.props.data.speed.map((v, i) => {
                   return {time: i+1, value: v.val};
                 })}
@@ -213,7 +213,7 @@ class TeleDash extends Component {
               <span className='cardLabel'>Throttle</span>
             </CardHeader>
             <CardBody>
-              <TimelineGraph size={[400,150]} max={100} min={0} valueName={'Charge'}
+              <TimelineGraph size={[450,150]} max={100} min={0} valueName={'Charge'}
                 data={this.props.data.throttle.map((v, i) => {
                   return {time: i+1, value: v.val};
                 })}
@@ -225,7 +225,7 @@ class TeleDash extends Component {
               <span className='cardLabel'>Brake</span>
             </CardHeader>
             <CardBody>
-              <TimelineGraph size={[400,150]} max={100} min={0} valueName={'Charge'}
+              <TimelineGraph size={[450,150]} max={100} min={0} valueName={'Charge'}
                 data={this.props.data.brake.map((v, i) => {
                   return {time: i+1, value: v.val};
                 })}
@@ -237,7 +237,11 @@ class TeleDash extends Component {
               <span className='cardLabel'>Engine RPM</span>
             </CardHeader>
             <CardBody>
-              <TimelineGraph size={[400,150]} max={12000} min={0} valueName={'Charge'}
+              <TimelineGraph
+                size={[450,150]}
+                max={12000}
+                min={0}
+                valueName={'Charge'}
                 data={this.props.data.RPM.map((v, i) => {
                   return {time: i+1, value: v.val};
                 })}
