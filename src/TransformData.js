@@ -89,19 +89,19 @@ const transformationInfo = {
     key: 'MAT',
     map: roundToNDecimals(0),
   },
-  'hybrid/dash/brake_tempLF': {
+  'hybrid/chassis/FL_brake': {
     key: 'brakeTempLF',
     map: roundToNDecimals(0),
   },
-  'hybrid/dash/brake_tempRF': {
+  'hybrid/chassis/FR_brake': {
     key: 'brakeTempRF',
     map: roundToNDecimals(0),
   },
-  'hybrid/dash/brake_tempLR': {
+  'hybrid/chassis/RL_brake': {
     key: 'brakeTempLB',
     map: roundToNDecimals(0),
   },
-  'hybrid/dash/brake_tempRR': {
+  'hybrid/chassis/RR_brake': {
     key: 'brakeTempRB',
     map: roundToNDecimals(0),
   },
