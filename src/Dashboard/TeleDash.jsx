@@ -186,7 +186,7 @@ class TeleDash extends Component {
               {/* todo: break into wheels, rpm */}
               <CarVisualization
                 valueName={""}
-                data={this.props.data.test[this.props.data.test.length - 1].val}
+                data={this.props.data}
                 size={[400,500]}
                 max={25}
                 min={0}

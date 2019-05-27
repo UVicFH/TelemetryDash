@@ -41,6 +41,10 @@ class App extends Component {
         fuel: { val: 0, time: currentTime},
         charge: { val: 0, time: currentTime},
         gear: { val: "N", time: currentTime},
+        brakeTempLF: { val: 50, time: currentTime },
+        brakeTempRF: { val: 50, time: currentTime },
+        brakeTempLB: { val: 50, time: currentTime },
+        brakeTempRB: { val: 50, time: currentTime },
       }
     };
   }

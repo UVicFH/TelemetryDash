@@ -24,22 +24,43 @@ class CarVizualization extends Component {
         
         // LF BARCHART
         var borderLF = { x: 0, y: 0, height: yScale(dataMax), width: barWidth}; 
-        var valueLF = { x: 0, y: barHeight-yScale(this.props.data), height: yScale(this.props.data), width: barWidth}; 
+        var valueLF = { 
+          x: 0, 
+          y: barHeight-yScale(this.props.data.brakeTempLF), 
+          height: yScale(this.props.data.brakeTempLF), 
+          width: barWidth
+        }; 
         const translateLF = 'translate(' + (marginSide-barWidth-10) + ',' + 60 + ')';
 
         // RF BARCHART
         var borderRF = { x: 0, y: 0, height: yScale(dataMax), width: barWidth}; 
         var valueRF = { x: 0, y: barHeight-yScale(this.props.data), height: yScale(this.props.data), width: barWidth}; 
+        var valueRF = { 
+          x: 0, 
+          y: barHeight-yScale(this.props.data.brakeTempRF), 
+          height: yScale(this.props.data.brakeTempRF), 
+          width: barWidth
+        }; 
         const translateRF = 'translate(' + (marginSide+carWidth+10) + ',' + 60 + ')';
 
         // LB BARCHART
         var borderLB = { x: 0, y: 0, height: yScale(dataMax), width: barWidth}; 
-        var valueLB = { x: 0, y: barHeight-yScale(this.props.data), height: yScale(this.props.data), width: barWidth}; 
+        var valueLB = { 
+          x: 0, 
+          y: barHeight-yScale(this.props.data.brakeTempLB), 
+          height: yScale(this.props.data.brakeTempLB), 
+          width: barWidth
+        }; 
         const translateLB = 'translate(' + (marginSide-barWidth-10) + ',' + 350 + ')';
 
         // RB BARCHART
         var borderRB = { x: 0, y: 0, height: yScale(dataMax), width: barWidth}; 
-        var valueRB = { x: 0, y: barHeight-yScale(this.props.data), height: yScale(this.props.data), width: barWidth}; 
+        var valueRB = { 
+          x: 0, 
+          y: barHeight-yScale(this.props.data.brakeTempRB), 
+          height: yScale(this.props.data.brakeTempRB), 
+          width: barWidth
+        }; 
         const translateRB = 'translate(' + (marginSide+carWidth+10) + ',' + 350 + ')';
         
         // POSITION THE CAR
