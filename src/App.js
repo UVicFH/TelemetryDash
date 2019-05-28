@@ -65,6 +65,11 @@ class App extends Component {
       this.setState({connectionState: 'disconnected'});
     });
 
+    socket.on('tele_connection_status', conn_status => {
+      console.log(`MQTT connection status update received: ${conn_status}`);
+      this.setState({connectionState: conn_status});
+    });
+
     // Modify state when data transmitted
     socket.on('tele_data', newData => {
       // console.log(newData);
@@ -76,6 +81,12 @@ class App extends Component {
 
   render() {
     // console.log('Props:', this.state.data);
+    const connectionStateColor = this.state.connectionState === 'disconnected'
+      ? '#F00'
+      : this.state.connectionState === 'no data'
+        ? '#F4BC42'
+        : '';
+
     return (
       <AppContainer>
         <AppHeader>
@@ -83,7 +94,7 @@ class App extends Component {
           <AppTitle
             style={{
               float: 'right',
-              color: this.state.connectionState === 'disconnected' ? '#ff0000' : '',
+              color: connectionStateColor,
             }}
           >
             {this.state.connectionState}
