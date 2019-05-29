@@ -20,7 +20,7 @@ class App extends Component {
     const currentTime = Date.now();
 
     this.state = {
-      connectionState: 'disconnected',
+      connectionState: 'DISCONNECTED',
       data: {
         test: [{ val: 0, time: currentTime}],
         speed: [{ val: 0, time: currentTime}],
@@ -57,12 +57,12 @@ class App extends Component {
 
     socket.on('connect', () => {
       console.log('Websocket connected');
-      this.setState({connectionState: 'connected'});
+      this.setState({connectionState: 'CONNECTED'});
     });
 
     socket.on('disconnect', () => {
       console.log('Websocket disconnected');
-      this.setState({connectionState: 'disconnected'});
+      this.setState({connectionState: 'DISCONNECTED'});
     });
 
     socket.on('tele_connection_status', conn_status => {
@@ -81,9 +81,9 @@ class App extends Component {
 
   render() {
     // console.log('Props:', this.state.data);
-    const connectionStateColor = this.state.connectionState === 'disconnected'
+    const connectionStateColor = this.state.connectionState === 'DISCONNECTED'
       ? '#F00'
-      : this.state.connectionState === 'no data'
+      : this.state.connectionState === 'NO DATA'
         ? '#F4BC42'
         : '';
 
