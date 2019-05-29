@@ -1,6 +1,12 @@
 // Framework
 import React, { Component } from 'react';
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 // Libraries & Utils
 import socketClient from 'socket.io-client';
 import { acceptData } from './TransformData';
@@ -12,6 +18,7 @@ import './App.css';
 // Components
 import { AppContainer, AppHeader, AppLogo, AppTitle } from './AppSC';
 import TeleDash from './Dashboard/TeleDash';
+import GraphDash from './Dashboard/GraphDash';
 
 class App extends Component {
   constructor(props) {
@@ -23,17 +30,21 @@ class App extends Component {
       connectionState: 'DISCONNECTED',
       data: {
         test: [{ val: 0, time: currentTime}],
+
         speed: [{ val: 0, time: currentTime}],
         throttle: [{ val: 0, time: currentTime}],
         brake: [{ val: 0, time: currentTime}],
         RPM: [{ val: 0, time: currentTime}],
-        TPS: { val: 0, time: currentTime},
-        spkadv: { val: 0, time: currentTime},
-        pw: { val: 0, time: currentTime},
+
+        spkadv: [{ val: 0, time: currentTime}],
+        AFR: [{ val: 0, time: currentTime}],
+        pw: [{ val: 0, time: currentTime}],
+        engineTemp: [{ val: 50, time: currentTime}],
+
+        TPS: [{ val: 0, time: currentTime}],
+
         duty: { val: 0, time: currentTime},
-        AFR: { val: 0, time: currentTime},
         AFRtgt: { val: 0, time: currentTime},
-        engineTemp: { val: 50, time: currentTime},
         MAT: { val: 50, time: currentTime},
         controllerTemp: { val: 0, time: currentTime},
         FETMOSHigh: { val: 0, time: currentTime},
@@ -100,7 +111,13 @@ class App extends Component {
             {this.state.connectionState}
           </AppTitle>
         </AppHeader>
-        <TeleDash data={this.state.data} />
+        <Router>
+          <Switch>
+            <Route exact path='/' render={() => <TeleDash data={this.state.data} />} />
+            <Route exact path='/graphs' render={() => <GraphDash data={this.state.data} />} />
+            <Route render={() => <h1>404</h1>} />
+          </Switch>
+        </Router>
       </AppContainer>
     );
   }

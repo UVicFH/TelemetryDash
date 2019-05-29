@@ -12,7 +12,7 @@ import { axisBottom, axisLeft } from 'd3-axis';
 class TimelineGraph extends Component {
   // TODO: switcher for data type, tooltip hovering,
   render() {
-    const dataMin = 0;
+    const dataMin = this.props.min;
     const dataMax = this.props.max;
     const width = this.props.size[0];
     const height = this.props.size[1];

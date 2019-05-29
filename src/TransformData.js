@@ -12,12 +12,12 @@ export const acceptData = (existingData = {}, newData = {}) => {
     const map = transformInfo ? transformInfo.map : null;
 
     if (Array.isArray(nextData[nextKey])) {
-      nextData[nextKey].push({
+      nextData[nextKey].unshift({
         val: map ? map(value) : value,
       });
 
       if (nextData[nextKey].length >= TIMELINE_GRAPH_POINTS) {
-        nextData[nextKey].shift();
+        nextData[nextKey].pop();
       }
     } else {
       nextData[nextKey] = {
@@ -27,6 +27,15 @@ export const acceptData = (existingData = {}, newData = {}) => {
   });
 
   return nextData;
+};
+
+export const graphMap = (data) => {
+  return data.map((v, i) => {
+    return {
+      time: data.length - i,
+      value: v.val,
+    };
+  });
 };
 
 const roundToNDecimals = (n) => {
