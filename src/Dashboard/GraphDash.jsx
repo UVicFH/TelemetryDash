@@ -15,6 +15,11 @@ import TimelineGraph from '../Visualizations/TimelineGraph';
 // Util
 import { graphMap } from '../TransformData';
 
+const GRAPH_SIZE = {
+  x: 450,
+  y: 150,
+};
+
 class GraphDash extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +41,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={105}
                 min={0}
                 data={graphMap(this.props.data.speed)}
@@ -49,7 +54,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 data={graphMap(this.props.data.throttle)}
@@ -62,7 +67,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 data={graphMap(this.props.data.brake)}
@@ -75,7 +80,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={12000}
                 min={0}
                 data={graphMap(this.props.data.RPM)}
@@ -90,7 +95,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={65}
                 min={0}
                 data={graphMap(this.props.data.spkadv)}
@@ -103,7 +108,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={22}
                 min={4}
                 data={graphMap(this.props.data.AFR)}
@@ -116,7 +121,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 data={graphMap(this.props.data.pw)}
@@ -129,7 +134,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={220}
                 min={60}
                 data={graphMap(this.props.data.engineTemp)}
@@ -144,7 +149,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={105}
                 min={0}
                 data={graphMap(this.props.data.speed)}
@@ -157,7 +162,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 data={graphMap(this.props.data.throttle)}
@@ -170,7 +175,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 data={graphMap(this.props.data.brake)}
@@ -183,7 +188,7 @@ class GraphDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={12000}
                 min={0}
                 data={graphMap(this.props.data.RPM)}

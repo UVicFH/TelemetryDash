@@ -15,6 +15,11 @@ import TimelineGraph from '../Visualizations/TimelineGraph';
 // Util
 import { graphMap } from '../TransformData';
 
+const GRAPH_SIZE = {
+  x: 450,
+  y: 150,
+};
+
 class TeleDash extends Component {
   constructor(props) {
     super(props);
@@ -205,7 +210,7 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={105}
                 min={0}
                 valueName={'Charge'}
@@ -219,7 +224,7 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 valueName={'Charge'}
@@ -233,7 +238,7 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={100}
                 min={0}
                 valueName={'Charge'}
@@ -247,7 +252,7 @@ class TeleDash extends Component {
             </CardHeader>
             <CardBody>
               <TimelineGraph
-                size={[450,150]}
+                size={[GRAPH_SIZE.x, GRAPH_SIZE.y]}
                 max={12000}
                 min={0}
                 valueName={'Charge'}
