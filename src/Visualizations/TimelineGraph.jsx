@@ -54,10 +54,10 @@ class TimelineGraph extends Component {
       .y(function(d) { return scaleY(d.value); });
 
     // CREATE THE LIST OF DATA POINTS
-    const circlePoints = this.props.data.map(d => ({
-      x: scaleX(d.time),
-      y: scaleY(d.value),
-    }));
+    // const circlePoints = this.props.data.map(d => ({
+    //   x: scaleX(d.time),
+    //   y: scaleY(d.value),
+    // }));
 
     // TRANSLATE GRAPH BASED ON MARGINS
     const translateMargins = `translate(${margin+30},${margin})`;
@@ -91,6 +91,8 @@ class TimelineGraph extends Component {
             ref={node => select(node).call(xAxis)}
             transform={translateAxisBottom}
           />
+          {/*
+
           <g className='scatter' transform={translateMargins}>
             {circlePoints.map(circlePoint => (
               <circle
@@ -101,6 +103,8 @@ class TimelineGraph extends Component {
               />
             ))}
           </g>
+
+              */}
         </svg>
       </div>
     );

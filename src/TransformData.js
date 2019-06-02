@@ -1,4 +1,4 @@
-const TIMELINE_GRAPH_POINTS = 20;
+const TIMELINE_GRAPH_POINTS = 50;
 
 export const acceptData = (existingData = {}, newData = {}) => {
   const nextData = Object.assign({}, existingData);

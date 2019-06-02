@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 // D3 imports
 import { arc } from 'd3-shape';
 import { scaleLinear } from 'd3-scale';
-import { Card, CardLabel, CardBody } from './DialContainer';
+import { Card, CardLabel, CardBody } from './DialContainer.jsx';
 
 class DialGraph extends Component {
   render() {
