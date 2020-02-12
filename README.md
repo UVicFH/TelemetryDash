@@ -4,6 +4,9 @@ It’s purpose is to provide the engineering team (and spectators) with real tim
 
 Wireframes have been designed collaboratively with project stakeholders; those being the Full Stack Developer - Brendon, Product Developer - Carly, Mechanical Lead - Bennett, Powertrain Lead - Chad, and Business Manager - Rob
 
+## Screenshots
+![](https://i.imgur.com/gUjnIGR.png)
+
 The initial mockup and first iteration of the design can be seen here:  
 ![Initial wireframe](./assets/Wireframe_V1.png)  
 ![Rev 1](./assets/Wireframe_V2.png)
